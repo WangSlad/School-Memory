@@ -99,49 +99,54 @@ script = ExtResource("campus_lamps")
 
 [node name="CampusGround" parent="." unique_id=2048008908 instance=ExtResource("1_plane")]
 texture = ExtResource("3_ground")
-scale_steps = 3.048
+scale_steps = 1.048
 pivot = 4
 ground_mode = true
 soften_materials = true
 
 [node name="CampusGround2" parent="." unique_id=499235065 instance=ExtResource("1_plane")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.701096, 0.001, 18.88819)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.701096, 0.01, 18.88819)
 texture = ExtResource("5_j8jky")
 scale_steps = 1.2999999999999998
 pivot = 4
 ground_mode = true
+collision_enabled = false
 soften_materials = true
 
 [node name="CampusGround3" parent="." unique_id=1516629808 instance=ExtResource("1_plane")]
-transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -2.0759776, 0.0010019074, -36.507465)
+transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -2.0759776, 0.01, -36.507465)
 texture = ExtResource("6_kmb1v")
 scale_steps = 0.4000000000000003
 pivot = 4
 ground_mode = true
+collision_enabled = false
 soften_materials = true
 
 [node name="CampusGround4" parent="." unique_id=1520017046 instance=ExtResource("1_plane")]
-transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -10.646946, 0.0010019074, -36.508064)
+transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -10.646946, 0.02, -36.508064)
 texture = ExtResource("7_fuf3a")
 scale_steps = 0.04000000000000003
 pivot = 4
 ground_mode = true
+collision_enabled = false
 soften_materials = true
 
 [node name="CampusGround5" parent="." unique_id=1620557123 instance=ExtResource("1_plane")]
-transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 25.586533, 0.0010028611, -4.182849)
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 25.586533, 0.02, -4.182849)
 texture = ExtResource("7_fuf3a")
 scale_steps = 0.5
 pivot = 4
 ground_mode = true
+collision_enabled = false
 soften_materials = true
 
 [node name="CampusGround6" parent="." unique_id=573108623 instance=ExtResource("1_plane")]
-transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 30.406944, 0.0010028611, -4.182849)
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 30.406944, 0.03, -4.182849)
 texture = ExtResource("7_fuf3a")
 scale_steps = 0.5
 pivot = 4
 ground_mode = true
+collision_enabled = false
 soften_materials = true
 
 [node name="ChunhuiBuilding" parent="." unique_id=1427128379 instance=ExtResource("2_model")]
@@ -685,16 +690,7 @@ facade_tint = Color(1, 0.94, 0.88, 1)
 clay_sheen = 0.3
 
 [node name="ChunhuiBuilding7" parent="." unique_id=1580790515 instance=ExtResource("2_model")]
-transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.500418, -1.9073486e-06, 20.85739)
-glb_scene = ExtResource("9_85g3d")
-scale_steps = -0.4000000000000003
-soften_materials = true
-window_glow = 0.12
-facade_tint = Color(1, 0.94, 0.88, 1)
-clay_sheen = 0.3
-
-[node name="ChunhuiBuilding8" parent="." unique_id=145571467 instance=ExtResource("2_model")]
-transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.494171, -1.9073486e-06, 14.034108)
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.500418, -1.9073486e-06, 23.149578)
 glb_scene = ExtResource("9_85g3d")
 scale_steps = -0.4000000000000003
 soften_materials = true
@@ -704,6 +700,15 @@ clay_sheen = 0.3
 
 [node name="ChunhuiBuilding9" parent="." unique_id=657190683 instance=ExtResource("2_model")]
 transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 9.477007)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding65" parent="." unique_id=2082843189 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 14.036654)
 glb_scene = ExtResource("9_85g3d")
 scale_steps = -0.4000000000000003
 soften_materials = true
@@ -2099,7 +2104,7 @@ clay_sheen = 0.3
 [node name="StudentCharacter" parent="." unique_id=1533317177 instance=ExtResource("student_character")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 29)
 movement_speed = 2.0
-character_scale = 0.65
+character_scale = 0.5
 soften_materials = true
 
 [node name="MinimapLayer" type="CanvasLayer" parent="." unique_id=767279725]

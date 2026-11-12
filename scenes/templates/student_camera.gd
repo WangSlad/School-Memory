@@ -3,6 +3,9 @@ extends Node3D
 const MOUSE_SENSITIVITY := 0.003
 const MIN_PITCH := deg_to_rad(-75.0)
 const MAX_PITCH := deg_to_rad(-8.0)
+const MIN_CAMERA_DISTANCE := 5
+const MAX_CAMERA_DISTANCE := 15.0
+const ZOOM_FACTOR := 1.15
 const FADE_AMOUNT := 0.8
 const FADE_SPEED := 5.0
 const MAX_OCCLUDERS_PER_RAY := 16
@@ -22,6 +25,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		var steps := maxf(event.factor, 0.01)
+		var zoom := pow(ZOOM_FACTOR, steps)
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoom = 1.0 / zoom
+		_camera.position.z = clampf(_camera.position.z * zoom, MIN_CAMERA_DISTANCE, MAX_CAMERA_DISTANCE)
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

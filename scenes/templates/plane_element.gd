@@ -43,6 +43,12 @@ const COLLISION_THICKNESS := 0.04
 @export var ground_mode := false:
 	set(value):
 		ground_mode = value
+		_texture_dirty = true
+		_queue_update()
+## Disable for decorative ground overlays resting on another walkable surface.
+@export var collision_enabled := true:
+	set(value):
+		collision_enabled = value
 		_queue_update()
 
 @export_group("Rendering")
@@ -96,7 +102,7 @@ func _update() -> void:
 	_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED if soften_materials and not ground_mode else BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	_material.albedo_color = (Color(0.88, 0.84, 0.79) * plate_tint if soften_materials else Color.WHITE) if ground_mode else plate_tint
 	_material.metallic_specular = 0.25 if ground_mode and soften_materials else 0.5
-	_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if ground_mode else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if ground_mode and collision_enabled else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 	var pixels := texture.get_size()
 	if _texture_dirty:
@@ -116,7 +122,7 @@ func _update() -> void:
 		-1.0 if mirror_vertical else 1.0, 1.0)
 	_material.uv1_offset = Vector3(float(mirror_horizontal), float(mirror_vertical), 0.0)
 
-	if not _opaque_rect.has_area():
+	if not collision_enabled or not _opaque_rect.has_area():
 		_collision.shape = null
 		return
 	var collision_center := _opaque_rect.get_center()
@@ -145,7 +151,9 @@ func _update_texture() -> void:
 	if image.is_compressed() and image.decompress() != OK:
 		return
 	if image.detect_alpha() != Image.ALPHA_NONE:
-		_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
+		# Ground overlays must write depth as opaque surfaces. Alpha blending can
+		# otherwise sort the large ground quad in front of a transparent Sprite3D.
+		_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR if ground_mode else BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
 		var used := image.get_used_rect()
 		var image_size := Vector2(image.get_size())
 		_opaque_rect = Rect2(Vector2(used.position) / image_size, Vector2(used.size) / image_size)

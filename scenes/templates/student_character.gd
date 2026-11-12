@@ -1,7 +1,7 @@
 @tool
 extends CharacterBody3D
 
-const FRAME_TIME := 0.1
+const FRAME_TIME := 0.14
 const PIXEL_SIZE := 0.01
 const COLLIDER_RADIUS := 0.28
 const COLLIDER_HEIGHT := 1.55
@@ -43,6 +43,7 @@ var _capsule: CapsuleShape3D
 @onready var _sprite: Sprite3D = $Sprite3D
 @onready var _collision: CollisionShape3D = $CollisionShape3D
 @onready var _camera_pivot: Node3D = $CameraPivot
+@onready var _footsteps: AudioStreamPlayer = $Footsteps
 
 
 func _ready() -> void:
@@ -77,19 +78,25 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= float(ProjectSettings.get_setting("physics/3d/default_gravity", 9.8)) * delta
 	else:
 		velocity.y = -0.1
+	var previous_position := global_position
 	move_and_slide()
+	var displacement := global_position - previous_position
+	displacement.y = 0.0
+	var movement_ratio := displacement.length() / (delta * movement_speed)
 
-	if direction.length_squared() > 0.001:
+	if is_on_floor() and movement_ratio > 0.01:
 		if absf(input.x) > absf(input.y):
 			_direction_row = 1
 			_sprite.flip_h = input.x > 0.0
 		else:
 			_direction_row = 2 if input.y < 0.0 else 0
 			_sprite.flip_h = false
-		_animation_time += delta
+		_animation_time += delta * movement_ratio
 		while _animation_time >= FRAME_TIME:
 			_animation_time -= FRAME_TIME
 			_walk_frame = _walk_frame % 4 + 1
+			if _walk_frame == 1 or _walk_frame == 3:
+				_footsteps.play()
 	else:
 		_animation_time = 0.0
 		_walk_frame = 0
@@ -114,4 +121,4 @@ func _update_sprite() -> void:
 func _update_rendering() -> void:
 	_sprite.set_draw_flag(SpriteBase3D.FLAG_SHADED, false if soften_materials else _original_shaded)
 	_sprite.modulate = _original_modulate * plate_tint
-	_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
