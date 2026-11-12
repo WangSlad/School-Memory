@@ -1,0 +1,46 @@
+00:00.968  blend            | Read blend: "D:\Research\GameDevelopment\建模\B11_teaching_middle\B11_teaching_middle.blend"
+00:22.609  render           | Saved: 'D:\Research\GameDevelopment\建模\B11_teaching_middle\preview_v2.png'
+00:27.890  render           | Saved: 'D:\Research\GameDevelopment\建模\B11_teaching_middle\check_front_v2.png'
+00:33.000  render           | Saved: 'D:\Research\GameDevelopment\建模\B11_teaching_middle\check_back_v2.png'
+00:37.812  render           | Saved: 'D:\Research\GameDevelopment\建模\B11_teaching_middle\check_side_v2.png'
+00:42.984  render           | Saved: 'D:\Research\GameDevelopment\建模\B11_teaching_middle\check_top_v2.png'
+Info: Saved as "B11_teaching_middle_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+12:04:24 | INFO: Starting glTF 2.0 export
+12:04:25 | INFO: Extracting primitive: GAME_Entry cladding
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_Pixel shrub green
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_Pixel shrub light
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Blossom_cutout
+12:04:25 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Glass_reflection
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Leaf_cutout
+12:04:25 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Pixel_limestone
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Planter_stone
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Silver_rail
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Silver_rail.001
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Silver_rail.002
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Silver_rail.003
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_V2_Tower_frame
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Extracting primitive: GAME_Window frames
+12:04:25 | INFO: Primitives created: 1
+12:04:25 | INFO: Finished glTF 2.0 export in 0.07879805564880371 s
+
+V2_DONE B11_teaching_middle
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

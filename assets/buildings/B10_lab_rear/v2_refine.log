@@ -1,0 +1,40 @@
+00:00.875  blend            | Read blend: "D:\Research\GameDevelopment\建模\B10_lab_rear\B10_lab_rear_v2.blend"
+00:21.078  render           | Saved: 'D:\Research\GameDevelopment\建模\B10_lab_rear\preview_v2.png'
+00:25.938  render           | Saved: 'D:\Research\GameDevelopment\建模\B10_lab_rear\check_front_v2.png'
+00:30.516  render           | Saved: 'D:\Research\GameDevelopment\建模\B10_lab_rear\check_back_v2.png'
+00:34.657  render           | Saved: 'D:\Research\GameDevelopment\建模\B10_lab_rear\check_side_v2.png'
+00:39.328  render           | Saved: 'D:\Research\GameDevelopment\建模\B10_lab_rear\check_top_v2.png'
+Info: Saved as "B10_lab_rear_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+12:14:31 | INFO: Starting glTF 2.0 export
+12:14:31 | INFO: Extracting primitive: GAME_roof
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Bark
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Blossom_cutout
+12:14:31 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Dense_hedge
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Glass_reflection
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Leaf_cutout
+12:14:31 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Pixel_limestone
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Planter_stone
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Silver_rail
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_V2_Tower_frame
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Extracting primitive: GAME_蓝灰窗框
+12:14:31 | INFO: Primitives created: 1
+12:14:31 | INFO: Finished glTF 2.0 export in 0.07716536521911621 s
+
+V2_DONE B10_lab_rear
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

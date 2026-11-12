@@ -1,0 +1,11 @@
+{
+  "id": "V01_tree_green",
+  "tris": 6172,
+  "degenerate_faces": 0,
+  "duplicate_triangles": 0,
+  "boundary_edges": 4608,
+  "nonmanifold_solid_edges": 0,
+  "mesh_objects": 2,
+  "materials": 3,
+  "missing_images": []
+}

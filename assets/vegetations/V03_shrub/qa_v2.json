@@ -1,0 +1,11 @@
+{
+  "id": "V03_shrub",
+  "tris": 1212,
+  "degenerate_faces": 0,
+  "duplicate_triangles": 0,
+  "boundary_edges": 2336,
+  "nonmanifold_solid_edges": 0,
+  "mesh_objects": 2,
+  "materials": 2,
+  "missing_images": []
+}

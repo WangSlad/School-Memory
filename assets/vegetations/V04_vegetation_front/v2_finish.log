@@ -1,0 +1,25 @@
+00:00.813  blend            | Read blend: "D:\Research\GameDevelopment\建模\V04_vegetation_front\V04_vegetation_front.blend"
+VEG_QA {"id": "V04_vegetation_front", "tris": 9825, "degenerate_faces": 0, "duplicate_triangles": 0, "boundary_edges": 14489, "nonmanifold_solid_edges": 0, "mesh_objects": 4, "materials": 4, "missing_images": []}
+00:31.157  render           | Saved: 'D:\Research\GameDevelopment\建模\V04_vegetation_front\preview_v2.png'
+00:36.610  render           | Saved: 'D:\Research\GameDevelopment\建模\V04_vegetation_front\check_front_v2.png'
+00:41.860  render           | Saved: 'D:\Research\GameDevelopment\建模\V04_vegetation_front\check_back_v2.png'
+00:47.203  render           | Saved: 'D:\Research\GameDevelopment\建模\V04_vegetation_front\check_side_v2.png'
+00:52.813  render           | Saved: 'D:\Research\GameDevelopment\建模\V04_vegetation_front\check_top_v2.png'
+Info: Saved as "V04_vegetation_front_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+13:24:12 | INFO: Starting glTF 2.0 export
+13:24:12 | INFO: Extracting primitive: GAME_V2_Bark
+13:24:12 | INFO: Primitives created: 1
+13:24:12 | INFO: Extracting primitive: GAME_VEG_Sculpted_leaves
+13:24:12 | INFO: Primitives created: 1
+13:24:12 | INFO: Extracting primitive: GAME_VEG_Shrub_shadow_green
+13:24:12 | INFO: Primitives created: 1
+13:24:12 | INFO: Extracting primitive: GAME_VEG_Yellow_green
+13:24:12 | INFO: Primitives created: 1
+13:24:12 | INFO: Finished glTF 2.0 export in 0.036104440689086914 s
+
+VEGETATION_DONE V04_vegetation_front
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

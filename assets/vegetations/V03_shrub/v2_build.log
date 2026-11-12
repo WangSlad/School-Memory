@@ -1,0 +1,22 @@
+00:00.688  blend            | Read blend: "D:\Research\GameDevelopment\建模\V03_shrub\V03_shrub.blend"
+Warning: No mesh data to join
+VEG_QA {"id": "V03_shrub", "tris": 1212, "degenerate_faces": 0, "duplicate_triangles": 0, "boundary_edges": 2336, "nonmanifold_solid_edges": 0, "mesh_objects": 2, "materials": 2, "missing_images": []}
+00:18.281  render           | Saved: 'D:\Research\GameDevelopment\建模\V03_shrub\preview_v2.png'
+00:23.359  render           | Saved: 'D:\Research\GameDevelopment\建模\V03_shrub\check_front_v2.png'
+00:28.234  render           | Saved: 'D:\Research\GameDevelopment\建模\V03_shrub\check_back_v2.png'
+00:34.078  render           | Saved: 'D:\Research\GameDevelopment\建模\V03_shrub\check_side_v2.png'
+00:41.063  render           | Saved: 'D:\Research\GameDevelopment\建模\V03_shrub\check_top_v2.png'
+Info: Saved as "V03_shrub_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+13:17:04 | INFO: Starting glTF 2.0 export
+13:17:04 | INFO: Extracting primitive: GAME_VEG_Dense_inner_leaves
+13:17:04 | INFO: Primitives created: 1
+13:17:04 | INFO: Extracting primitive: GAME_VEG_Sculpted_leaves
+13:17:04 | INFO: Primitives created: 1
+13:17:04 | INFO: Finished glTF 2.0 export in 0.03767800331115723 s
+
+VEGETATION_DONE V03_shrub
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

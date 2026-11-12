@@ -1,0 +1,26 @@
+00:00.687  blend            | Read blend: "D:\Research\GameDevelopment\建模\P09_basketball_hoop\P09_basketball_hoop.blend"
+00:15.047  render           | Saved: 'D:\Research\GameDevelopment\建模\P09_basketball_hoop\preview_v2.png'
+00:18.875  render           | Saved: 'D:\Research\GameDevelopment\建模\P09_basketball_hoop\check_front_v2.png'
+00:22.875  render           | Saved: 'D:\Research\GameDevelopment\建模\P09_basketball_hoop\check_back_v2.png'
+00:26.531  render           | Saved: 'D:\Research\GameDevelopment\建模\P09_basketball_hoop\check_side_v2.png'
+00:30.250  render           | Saved: 'D:\Research\GameDevelopment\建模\P09_basketball_hoop\check_top_v2.png'
+Info: Saved as "P09_basketball_hoop_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+12:07:56 | INFO: Starting glTF 2.0 export
+12:07:56 | INFO: Extracting primitive: GAME_Green painted steel
+12:07:56 | INFO: Primitives created: 1
+12:07:56 | INFO: Extracting primitive: GAME_Orange red rim
+12:07:56 | INFO: Primitives created: 1
+12:07:56 | INFO: Extracting primitive: GAME_V2_Backboard_reflection
+12:07:56 | INFO: Primitives created: 1
+12:07:56 | INFO: Extracting primitive: GAME_V2_Net_rope
+12:07:56 | INFO: Primitives created: 1
+12:07:56 | INFO: Extracting primitive: GAME_White painted frame
+12:07:56 | INFO: Primitives created: 1
+12:07:56 | INFO: Finished glTF 2.0 export in 0.031594038009643555 s
+
+V2_DONE P09_basketball_hoop
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

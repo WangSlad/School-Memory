@@ -1,0 +1,11 @@
+{
+  "id": "V06_vegetation_back",
+  "tris": 6300,
+  "degenerate_faces": 0,
+  "duplicate_triangles": 0,
+  "boundary_edges": 2592,
+  "nonmanifold_solid_edges": 0,
+  "mesh_objects": 3,
+  "materials": 3,
+  "missing_images": []
+}

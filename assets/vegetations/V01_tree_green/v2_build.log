@@ -1,0 +1,25 @@
+00:00.688  blend            | Read blend: "D:\Research\GameDevelopment\建模\V01_tree_green\V01_tree_green.blend"
+Warning: No mesh data to join
+Warning: No mesh data to join
+VEG_QA {"id": "V01_tree_green", "tris": 6172, "degenerate_faces": 0, "duplicate_triangles": 0, "boundary_edges": 4608, "nonmanifold_solid_edges": 0, "mesh_objects": 2, "materials": 3, "missing_images": []}
+00:19.813  render           | Saved: 'D:\Research\GameDevelopment\建模\V01_tree_green\preview_v2.png'
+00:25.157  render           | Saved: 'D:\Research\GameDevelopment\建模\V01_tree_green\check_front_v2.png'
+00:30.157  render           | Saved: 'D:\Research\GameDevelopment\建模\V01_tree_green\check_back_v2.png'
+00:35.329  render           | Saved: 'D:\Research\GameDevelopment\建模\V01_tree_green\check_side_v2.png'
+00:41.032  render           | Saved: 'D:\Research\GameDevelopment\建模\V01_tree_green\check_top_v2.png'
+Info: Saved as "V01_tree_green_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+13:10:29 | INFO: Starting glTF 2.0 export
+13:10:29 | INFO: Extracting primitive: GAME_V2_Bark
+13:10:29 | INFO: Primitives created: 1
+13:10:29 | INFO: Extracting primitive: GAME_VEG_Dense_inner_leaves
+13:10:29 | INFO: Primitives created: 1
+13:10:29 | INFO: Extracting primitive: GAME_VEG_Sculpted_leaves
+13:10:29 | INFO: Primitives created: 1
+13:10:29 | INFO: Finished glTF 2.0 export in 0.03432154655456543 s
+
+VEGETATION_DONE V01_tree_green
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

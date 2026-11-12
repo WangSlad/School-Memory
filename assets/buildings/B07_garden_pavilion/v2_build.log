@@ -1,0 +1,46 @@
+00:00.813  blend            | Read blend: "D:\Research\GameDevelopment\建模\B07_garden_pavilion\B07_garden_pavilion.blend"
+00:16.781  render           | Saved: 'D:\Research\GameDevelopment\建模\B07_garden_pavilion\preview_v2.png'
+00:20.844  render           | Saved: 'D:\Research\GameDevelopment\建模\B07_garden_pavilion\check_front_v2.png'
+00:24.859  render           | Saved: 'D:\Research\GameDevelopment\建模\B07_garden_pavilion\check_back_v2.png'
+00:28.813  render           | Saved: 'D:\Research\GameDevelopment\建模\B07_garden_pavilion\check_side_v2.png'
+00:33.297  render           | Saved: 'D:\Research\GameDevelopment\建模\B07_garden_pavilion\check_top_v2.png'
+Info: Saved as "B07_garden_pavilion_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+12:08:41 | INFO: Starting glTF 2.0 export
+12:08:41 | INFO: Extracting primitive: GAME_roof
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Blossom_cutout
+12:08:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Glass_reflection
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Leaf_cutout
+12:08:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Pixel_limestone
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Pixel_paving
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Planter_stone
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_V2_Tower_frame
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_屋檐浅蓝金属
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_绿植
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_绿植高光
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_花朵
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_花池土壤
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Extracting primitive: GAME_蓝灰窗框
+12:08:41 | INFO: Primitives created: 1
+12:08:41 | INFO: Finished glTF 2.0 export in 0.08737397193908691 s
+
+V2_DONE B07_garden_pavilion
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit

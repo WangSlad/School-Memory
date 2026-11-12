@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/templates/student_character.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/characters/student_spritesheet.png" id="2"]
+[ext_resource type="Script" path="res://scenes/templates/student_camera.gd" id="3"]
+
+[node name="StudentCharacter" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 1
+billboard = 2
+texture = ExtResource("2")
+hframes = 5
+vframes = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+position = Vector3(0, 1, 0)
+rotation_degrees = Vector3(-25, 0, 0)
+script = ExtResource("3")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+position = Vector3(0, 0, 9.93)
+current = true
+fov = 45.0

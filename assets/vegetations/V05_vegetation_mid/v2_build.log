@@ -1,0 +1,35 @@
+00:00.718  blend            | Read blend: "D:\Research\GameDevelopment\建模\V05_vegetation_mid\V05_vegetation_mid.blend"
+Warning: No mesh data to join
+VEG_QA {"id": "V05_vegetation_mid", "tris": 7214, "degenerate_faces": 0, "duplicate_triangles": 0, "boundary_edges": 6984, "nonmanifold_solid_edges": 0, "mesh_objects": 9, "materials": 8, "missing_images": []}
+00:26.187  render           | Saved: 'D:\Research\GameDevelopment\建模\V05_vegetation_mid\preview_v2.png'
+00:31.625  render           | Saved: 'D:\Research\GameDevelopment\建模\V05_vegetation_mid\check_front_v2.png'
+00:37.546  render           | Saved: 'D:\Research\GameDevelopment\建模\V05_vegetation_mid\check_back_v2.png'
+00:43.968  render           | Saved: 'D:\Research\GameDevelopment\建模\V05_vegetation_mid\check_side_v2.png'
+00:51.921  render           | Saved: 'D:\Research\GameDevelopment\建模\V05_vegetation_mid\check_top_v2.png'
+Info: Saved as "V05_vegetation_mid_v2.blend"
+INFO Draco is available, use library at D:\Blender\blender.shared\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\Blender\blender.shared\bf_intern_meshopt_bridge.dll
+13:17:05 | INFO: Starting glTF 2.0 export
+13:17:05 | INFO: Extracting primitive: GAME_V2_Bark
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_V2_Blossom_cutout
+13:17:05 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Dense_inner_leaves
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Grass
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Lilac_flower
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Red_leaves
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Sculpted_leaves
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Extracting primitive: GAME_VEG_Yellow_green
+13:17:05 | INFO: Primitives created: 1
+13:17:05 | INFO: Finished glTF 2.0 export in 0.05360984802246094 s
+
+VEGETATION_DONE V05_vegetation_mid
+Blender 5.3.0 (hash 02f0899d78e3 built 2026-11-10 01:33:43)
+
+Blender quit
