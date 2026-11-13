@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Spring classroom frosted reflective glass"
+albedo_color = Color(0.56, 0.66, 0.69, 1)
+metallic = 0.28
+metallic_specular = 0.65
+roughness = 0.19
+cull_mode = 0

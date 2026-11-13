@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/teaching_building/teaching_building.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/templates/student_character.tscn" id="2"]
+[ext_resource type="Script" path="res://scenes/teaching_building/inspection_lighting.gd" id="3"]
+[ext_resource type="Script" path="res://scenes/teaching_building/inspection_camera.gd" id="4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMaterial"]
+sky_top_color = Color(0.52, 0.66, 0.72, 1)
+sky_horizon_color = Color(0.85, 0.86, 0.81, 1)
+ground_bottom_color = Color(0.48, 0.51, 0.46, 1)
+ground_horizon_color = Color(0.76, 0.79, 0.72, 1)
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMaterial")
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.97, 0.91, 1)
+ambient_light_energy = 0.9
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_white = 5.0
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 0.6
+ssao_light_affect = 0.15
+
+[node name="TeachingBuildingTest" type="Node3D"]
+
+[node name="Building" parent="." instance=ExtResource("1")]
+
+[node name="StudentCharacter" parent="." instance=ExtResource("2")]
+position = Vector3(118.4, 0.08, 2.4)
+movement_speed = 4.0
+soften_materials = true
+
+
+[node name="CameraPivot" parent="StudentCharacter" index="3"]
+script = ExtResource("4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-42, -38, 0)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.45
+light_angular_distance = 0.7
+shadow_enabled = true
+directional_shadow_max_distance = 100.0
+directional_shadow_blend_splits = true
+
+[node name="CorridorFillLights" type="Node3D" parent="."]
+script = ExtResource("3")
+
+
+
+[editable path="StudentCharacter"]

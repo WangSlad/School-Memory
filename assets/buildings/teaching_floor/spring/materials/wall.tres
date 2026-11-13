@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://assets/buildings/teaching_floor/spring/shaders/wall.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_wall_平面.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_sakura_平面.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_wall_roughness.png" id="4"]
+
+[resource]
+resource_name = "Spring ivory and sakura dado"
+shader = ExtResource("1")
+shader_parameter/wall_texture = ExtResource("2")
+shader_parameter/skirt_texture = ExtResource("3")
+shader_parameter/roughness_texture = ExtResource("4")
+shader_parameter/floor_height = 3.6

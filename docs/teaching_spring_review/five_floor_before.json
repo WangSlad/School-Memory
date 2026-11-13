@@ -1,0 +1,30 @@
+{
+  "assets\\buildings\\teaching_five_floor\\teaching_five_floor.glb": {
+    "sha256": "508d9edb8371fe3caf97fd350f5320cb1d772f50c25d20e9d1135db6e1507800",
+    "size": 714232
+  },
+  "assets\\buildings\\teaching_five_floor\\teaching_five_floor.blend": {
+    "sha256": "5061004d3c87f87c3b087ca72c6c7c4c8105990f00dd955ea1fb383f80c3fee8",
+    "size": 395900
+  },
+  "scenes\\teaching_building\\teaching_building.gd": {
+    "sha256": "e5c8350537fa7f1ebc6646e9dabdc9e360cba78077f170165a7cc16438ced7fa",
+    "size": 4394
+  },
+  "scenes\\teaching_building\\teaching_building_test.tscn": {
+    "sha256": "639165c7d87c0b8a80931452055bf769d3dc906d5ee3b37a5b2cb570ba89868e",
+    "size": 1925
+  },
+  "scenes\\teaching_building\\inspection_camera.gd": {
+    "sha256": "1405583d8ee0530b0c47430bc270e6a3709c44161c8cf2c2e0ab4c9ea464831b",
+    "size": 817
+  },
+  "scenes\\templates\\student_character.gd": {
+    "sha256": "02e24e1bef514edaaa2cd29e36f793cadd1dd6ba9ec41b5a36a5ee57ed76c81a",
+    "size": 4080
+  },
+  "scenes\\templates\\student_camera.gd": {
+    "sha256": "54a95fe1b9ea5e902ed2019fc3eed0e8ce715a144911527f27e35646013f0607",
+    "size": 5072
+  }
+}

@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3]
+
+[ext_resource type="Shader" path="res://assets/buildings/teaching_floor/spring/shaders/door.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_door_wood_平面.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_sign_平面.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_door_panel_平面.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_wood_roughness.png" id="5"]
+
+[resource]
+resource_name = "Spring painted wood door and malt plaque"
+shader = ExtResource("1")
+shader_parameter/paint_texture = ExtResource("2")
+shader_parameter/sign_texture = ExtResource("3")
+shader_parameter/panel_texture = ExtResource("4")
+shader_parameter/roughness_texture = ExtResource("5")
+shader_parameter/floor_height = 3.6
+shader_parameter/bay_width = 8.0
