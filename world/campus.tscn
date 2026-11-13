@@ -2089,3 +2089,6 @@ window_glow = 0.12
 facade_tint = Color(1, 0.94, 0.88, 1)
 clay_sheen = 0.3
 
+
+[node name="DefaultSpawn" type="Marker3D" parent="."]
+position = Vector3(-15, 0.1, 29)

@@ -1,5 +1,23 @@
 extends Node3D
 
+## FREE preserves the original mouse orbit and zoom. FIXED accepts a preset pose.
+enum Mode { FREE, FIXED }
+var mode: Mode = Mode.FREE
+
+## Presets are optional dictionaries: pitch, yaw (radians), and distance.
+## Missing fields retain the current pose; switching back to FREE preserves it.
+func apply_preset(preset: Dictionary, new_mode: Mode = Mode.FREE) -> void:
+	if preset.has("pitch"):
+		rotation.x = clampf(float(preset["pitch"]), MIN_PITCH, MAX_PITCH)
+	if preset.has("yaw"):
+		rotation.y = float(preset["yaw"])
+	if preset.has("distance"):
+		$Camera3D.position.z = clampf(float(preset["distance"]), MIN_CAMERA_DISTANCE, MAX_CAMERA_DISTANCE)
+	mode = new_mode
+
+func set_mode(new_mode: Mode) -> void:
+	mode = new_mode
+
 const MOUSE_SENSITIVITY := 0.003
 const MIN_PITCH := deg_to_rad(-75.0)
 const MAX_PITCH := deg_to_rad(-8.0)
@@ -25,7 +43,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+	elif mode == Mode.FREE and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 		var steps := maxf(event.factor, 0.01)
 		var zoom := pow(ZOOM_FACTOR, steps)
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -34,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	elif mode == Mode.FREE and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		rotation.x = clampf(rotation.x - event.relative.y * MOUSE_SENSITIVITY, MIN_PITCH, MAX_PITCH)
 

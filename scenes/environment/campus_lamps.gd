@@ -9,10 +9,17 @@ var _lights: Array[OmniLight3D] = []
 var _day_emission: Array[float] = []
 
 func _ready() -> void:
+	GameTime.time_changed.connect(_on_time_changed)
 	# Model templates finish instantiating their meshes during their own _ready.
 	_setup.call_deferred()
 
+func _exit_tree() -> void:
+	if GameTime.time_changed.is_connected(_on_time_changed):
+		GameTime.time_changed.disconnect(_on_time_changed)
+
 func _setup() -> void:
+	if not is_inside_tree():
+		return
 	for lamp in $"../CampusAdditions".get_children():
 		if lamp.get("glb_scene") is PackedScene and lamp.glb_scene.resource_path.ends_with("/P06_plaza_lamp_v2.glb"):
 			_setup_meshes(lamp, lamp)
@@ -37,7 +44,7 @@ func _setup_meshes(node: Node, lamp: Node3D) -> void:
 	for child in node.get_children():
 		_setup_meshes(child, lamp)
 
-func _process(_delta: float) -> void:
+func _on_time_changed(_hour: float) -> void:
 	_update_lamps()
 
 func _update_lamps() -> void:

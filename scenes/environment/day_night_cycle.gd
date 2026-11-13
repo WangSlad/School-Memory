@@ -13,6 +13,10 @@ func _ready() -> void:
 	GameTime.time_changed.connect(_on_time_changed)
 	_update_lighting()
 
+func _exit_tree() -> void:
+	if GameTime.time_changed.is_connected(_on_time_changed):
+		GameTime.time_changed.disconnect(_on_time_changed)
+
 func _on_time_changed(_hour: float) -> void:
 	_update_lighting()
 
