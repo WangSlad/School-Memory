@@ -7,7 +7,6 @@ extends Node
 var _materials: Array[BaseMaterial3D] = []
 var _lights: Array[OmniLight3D] = []
 var _day_emission: Array[float] = []
-@onready var cycle: Node = $"../DayNightCycle"
 
 func _ready() -> void:
 	# Model templates finish instantiating their meshes during their own _ready.
@@ -42,7 +41,7 @@ func _process(_delta: float) -> void:
 	_update_lamps()
 
 func _update_lamps() -> void:
-	var sun_height := sin((cycle.current_hour - 6.0) * TAU / 24.0)
+	var sun_height := sin((GameTime.current_hour - 6.0) * TAU / 24.0)
 	var night := 1.0 - smoothstep(-0.08, 0.16, sun_height)
 	for i in _materials.size():
 		_materials[i].emission_energy_multiplier = lerpf(_day_emission[i], night_emission, night)

@@ -1,0 +1,2091 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/templates/plane_element.tscn" id="1_plane"]
+[ext_resource type="PackedScene" path="res://scenes/templates/model_element.tscn" id="2_model"]
+[ext_resource type="Texture2D" uid="uid://cm0upnuca0s3f" path="res://assets/campus_ground_detailed.png" id="3_ground"]
+[ext_resource type="PackedScene" uid="uid://vgnrotcghy7n" path="res://assets/buildings/B01_chunhui_有字/B01_chunhui_有字_v2.glb" id="4_building"]
+[ext_resource type="Texture2D" uid="uid://c1vddmw3ta1xb" path="res://assets/ground/G02_main_track_平面.png" id="5_j8jky"]
+[ext_resource type="Shader" uid="uid://btl27hjc6dy67" path="res://scenes/environment/campus_sky.gdshader" id="5_sky"]
+[ext_resource type="PackedScene" uid="uid://ciudc71t66rb4" path="res://assets/buildings/B06_low_building/B06_low_building_v2.glb" id="6_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://d0b0n5jj0l2m" path="res://assets/BG01_horizon_平面.png" id="6_horizon"]
+[ext_resource type="Texture2D" uid="uid://bmjuf6cq8pk0e" path="res://assets/ground/G04_rear_track_平面.png" id="6_kmb1v"]
+[ext_resource type="PackedScene" uid="uid://b37k2kefyesnq" path="res://assets/objects/P11_rock_pond/P11_rock_pond_v2.glb" id="7_0ld40"]
+[ext_resource type="PackedScene" uid="uid://btcf8qy8brekt" path="res://assets/buildings/B07_garden_pavilion/B07_garden_pavilion_v2.glb" id="7_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://ce33gp0h1wmjv" path="res://assets/ground/G03_basketball_courts_平面.png" id="7_fuf3a"]
+[ext_resource type="PackedScene" uid="uid://y08ht3fyi61" path="res://assets/objects/P04_school_stone_有字/P04_school_stone_有字_v2.glb" id="7_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://crfoxtqb0aw28" path="res://assets/buildings/B08_round_hall/B08_round_hall_v2.glb" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://n8upjoy0asyv" path="res://assets/objects/P01_gate_tower/P01_gate_tower_v2.glb" id="8_muem4"]
+[ext_resource type="PackedScene" uid="uid://dnkt5nd86sbsa" path="res://assets/buildings/B03_teaching/B03_teaching_v2.glb" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bf5hvuphhu1a3" path="res://assets/objects/P07_stand_canopy/P07_stand_canopy_v2.glb" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bb6lisddr3kfh" path="res://assets/buildings/B02_science/B02_science_v2.glb" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://dsw2sml44wp5w" path="res://assets/objects/P03_gate_barrier/P03_gate_barrier_v2.glb" id="9_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://bi0la6ytkurmr" path="res://assets/buildings/B04_repeated_block/B04_repeated_block_v2.glb" id="9_trceg"]
+[ext_resource type="PackedScene" uid="uid://cpksrh5khwkqo" path="res://assets/buildings/B09_large_hall/B09_large_hall_v2.glb" id="10_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://cxnx6a4twyvnc" path="res://assets/buildings/B10_lab_rear/B10_lab_rear_v2.glb" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://prq7bs2ca8di" path="res://assets/buildings/B05_red_roof/B05_red_roof_v2.glb" id="11_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dt5pbxysxyujy" path="res://assets/objects/P02_gate_wing/P02_gate_wing_v2.glb" id="12_yc10j"]
+[ext_resource type="PackedScene" uid="uid://crvtkaiig4472" path="res://assets/objects/P05_sculpture/P05_sculpture_v2.glb" id="added_P05"]
+[ext_resource type="PackedScene" uid="uid://7u176w5socy8" path="res://assets/objects/P06_plaza_lamp/P06_plaza_lamp_v2.glb" id="added_P06"]
+[ext_resource type="PackedScene" uid="uid://bjm5l126pum4d" path="res://assets/objects/P08_goal/P08_goal_v2.glb" id="added_P08"]
+[ext_resource type="PackedScene" uid="uid://8fa36wdjboxi" path="res://assets/objects/P09_basketball_hoop/P09_basketball_hoop_v2.glb" id="added_P09"]
+[ext_resource type="PackedScene" uid="uid://cki3q2w1257yh" path="res://assets/objects/P10_sports_fence/P10_sports_fence_v2.glb" id="added_P10"]
+[ext_resource type="PackedScene" uid="uid://bnb8yk82det3" path="res://assets/vegetations/V01_tree_green/V01_tree_green_v2.glb" id="added_V01"]
+[ext_resource type="PackedScene" uid="uid://bip3arh5qw4jj" path="res://assets/vegetations/V02_tree_blossom/V02_tree_blossom_v2.glb" id="added_V02"]
+[ext_resource type="PackedScene" uid="uid://ckv6po667xa0n" path="res://assets/vegetations/V03_shrub/V03_shrub_v2.glb" id="added_V03"]
+[ext_resource type="PackedScene" uid="uid://bwg3otm3ea6ox" path="res://assets/vegetations/V04_vegetation_front/V04_vegetation_front_v2.glb" id="added_V04"]
+[ext_resource type="PackedScene" uid="uid://dl0213mjabf1m" path="res://assets/vegetations/V05_vegetation_mid/V05_vegetation_mid_v2.glb" id="added_V05"]
+[ext_resource type="PackedScene" uid="uid://5mvelb66tndm" path="res://assets/vegetations/V06_vegetation_back/V06_vegetation_back_v2.glb" id="added_V06"]
+[ext_resource type="Script" uid="uid://uodnmfgf7jiw" path="res://scenes/environment/campus_lamps.gd" id="campus_lamps"]
+[ext_resource type="Script" uid="uid://3a4den0dk25y" path="res://scenes/templates/campus_music.gd" id="campus_music"]
+[ext_resource type="Script" uid="uid://dh2pl0s57ghy8" path="res://scenes/environment/day_night_cycle.gd" id="day_night_cycle"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sky"]
+shader = ExtResource("5_sky")
+shader_parameter/daylight = 1.0
+shader_parameter/horizon_texture = ExtResource("6_horizon")
+shader_parameter/distant_haze = Color(0.4, 0.57, 0.64, 1)
+
+[sub_resource type="Sky" id="Sky_campus"]
+sky_material = SubResource("ShaderMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_campus"]
+background_mode = 2
+sky = SubResource("Sky_campus")
+ambient_light_source = 3
+ambient_light_color = Color(0.86174446, 0.90882635, 0.99946314, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.3
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 5.0
+ssao_enabled = true
+ssao_radius = 1.5
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_strength = 0.75
+
+[node name="Campus" type="Node3D" unique_id=7112724]
+
+[node name="CampusMusic" type="AudioStreamPlayer" parent="." unique_id=906620347]
+volume_db = -15.0
+script = ExtResource("campus_music")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1000318463]
+environment = SubResource("Environment_campus")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1431287066]
+transform = Transform3D(0.8660254, 0.3596699, -0.3473292, 0, 0.6946584, 0.7193398, 0.5, -0.6229665, 0.6015918, 0, 0, 0)
+light_color = Color(0.99999994, 0.8161666, 0.51838213, 1)
+light_energy = 4.0
+shadow_enabled = true
+directional_shadow_max_distance = 160.0
+
+[node name="Moon" type="DirectionalLight3D" parent="." unique_id=512595329]
+light_color = Color(0.55, 0.68, 1, 1)
+light_energy = 0.3
+shadow_enabled = true
+directional_shadow_max_distance = 160.0
+
+[node name="DayNightCycle" type="Node" parent="." unique_id=1563976021]
+script = ExtResource("day_night_cycle")
+
+[node name="CampusLamps" type="Node" parent="." unique_id=1028527988]
+script = ExtResource("campus_lamps")
+
+[node name="CampusGround" parent="." unique_id=2048008908 instance=ExtResource("1_plane")]
+texture = ExtResource("3_ground")
+scale_steps = 1.048
+pivot = 4
+ground_mode = true
+soften_materials = true
+
+[node name="CampusGround2" parent="." unique_id=499235065 instance=ExtResource("1_plane")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.701096, 0.01, 18.88819)
+texture = ExtResource("5_j8jky")
+scale_steps = 1.2999999999999998
+pivot = 4
+ground_mode = true
+collision_enabled = false
+soften_materials = true
+
+[node name="CampusGround3" parent="." unique_id=1516629808 instance=ExtResource("1_plane")]
+transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -2.0759776, 0.01, -36.507465)
+texture = ExtResource("6_kmb1v")
+scale_steps = 0.4000000000000003
+pivot = 4
+ground_mode = true
+collision_enabled = false
+soften_materials = true
+
+[node name="CampusGround4" parent="." unique_id=1520017046 instance=ExtResource("1_plane")]
+transform = Transform3D(-3.4969112e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.371139e-08, -10.646946, 0.02, -36.508064)
+texture = ExtResource("7_fuf3a")
+scale_steps = 0.04000000000000003
+pivot = 4
+ground_mode = true
+collision_enabled = false
+soften_materials = true
+
+[node name="CampusGround5" parent="." unique_id=1620557123 instance=ExtResource("1_plane")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 25.586533, 0.02, -4.182849)
+texture = ExtResource("7_fuf3a")
+scale_steps = 0.5
+pivot = 4
+ground_mode = true
+collision_enabled = false
+soften_materials = true
+
+[node name="CampusGround6" parent="." unique_id=573108623 instance=ExtResource("1_plane")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1.1, 30.406944, 0.03, -4.182849)
+texture = ExtResource("7_fuf3a")
+scale_steps = 0.5
+pivot = 4
+ground_mode = true
+collision_enabled = false
+soften_materials = true
+
+[node name="ChunhuiBuilding" parent="." unique_id=1427128379 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 1, -14.756054, 0, -19.203373)
+glb_scene = ExtResource("6_gqmmt")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding27" parent="." unique_id=712137702 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.018139, 0, -2.0957716)
+glb_scene = ExtResource("4_building")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding26" parent="." unique_id=1338848138 instance=ExtResource("2_model")]
+transform = Transform3D(-6.556708e-08, 0, 1.2, 0, 1, 0, -1.5, 0, -5.2453668e-08, -32.700077, 0, -13.352994)
+glb_scene = ExtResource("7_0ld40")
+scale_steps = 1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding21" parent="." unique_id=44650279 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.37905, 0.001, 36.153)
+glb_scene = ExtResource("7_jbj1t")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding22" parent="." unique_id=1204838559 instance=ExtResource("2_model")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, -28.229198, 0.001, 35.602253)
+glb_scene = ExtResource("8_muem4")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding63" parent="." unique_id=1539721077 instance=ExtResource("2_model")]
+transform = Transform3D(-0.8, 0, -1.2079664e-07, 0, 0.8, 0, 1.2079664e-07, 0, -0.8, -18.454512, 0.001, -44.888382)
+glb_scene = ExtResource("8_muem4")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding49" parent="." unique_id=290919152 instance=ExtResource("2_model")]
+transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -42.812897, 0.0009990464, -6.850267)
+glb_scene = ExtResource("8_muem4")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding25" parent="." unique_id=698834792 instance=ExtResource("2_model")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 1, -2.845706, 0.001, 35.602253)
+glb_scene = ExtResource("8_muem4")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding23" parent="." unique_id=172387591 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.405455, 0.001, 36.052887)
+glb_scene = ExtResource("9_dp3eg")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding62" parent="." unique_id=1280536086 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.725941, 0.001, -45.4969)
+glb_scene = ExtResource("9_dp3eg")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding28" parent="." unique_id=2115674479 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.271057, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding54" parent="." unique_id=169638950 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.86543, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding55" parent="." unique_id=1990715935 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.512665, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding56" parent="." unique_id=1873294389 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.79482, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding57" parent="." unique_id=1789960654 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.999374, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding58" parent="." unique_id=1069571242 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.684269, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding59" parent="." unique_id=982881428 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.373236, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding60" parent="." unique_id=89154494 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.037173, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding61" parent="." unique_id=666084013 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31070042, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding64" parent="." unique_id=1180939109 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.041025, -0.009761738, -45.532402)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding43" parent="." unique_id=133573123 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.011986, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding44" parent="." unique_id=414425550 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, 30.349852)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding45" parent="." unique_id=1499621955 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, 21.00968)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding46" parent="." unique_id=428165999 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, 11.676659)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding50" parent="." unique_id=898891893 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, -13.883649)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding51" parent="." unique_id=1130008740 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, -23.227413)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding52" parent="." unique_id=40244581 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, -32.571228)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding53" parent="." unique_id=806342780 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, -40.03914)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding47" parent="." unique_id=556858382 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, 6.0781703)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding48" parent="." unique_id=245800285 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.354393, -0.009761738, -0.915468)
+glb_scene = ExtResource("9_dp3eg")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding29" parent="." unique_id=2131827249 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.312046, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding30" parent="." unique_id=1983017226 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.626807, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding31" parent="." unique_id=219783816 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.951849, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding32" parent="." unique_id=1312778577 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.28644, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding33" parent="." unique_id=1737838404 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.01702, -0.009761738, 35.708393)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding34" parent="." unique_id=1199755106 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.778496, -0.009761738, 30.614662)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding35" parent="." unique_id=2062164008 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.778496, -0.009761738, 21.269325)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding36" parent="." unique_id=1394740074 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.778496, -0.009761738, 11.931943)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding37" parent="." unique_id=1765977730 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.778496, -0.009761738, 2.5726995)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding38" parent="." unique_id=1239573257 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.774548, -0.009761738, -6.766901)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding39" parent="." unique_id=1456825933 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.806908, -0.009761738, -16.129387)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding40" parent="." unique_id=1072213159 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.806908, -0.009761738, -25.474516)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding41" parent="." unique_id=963587412 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.806908, -0.009761738, -34.807922)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding42" parent="." unique_id=1366326626 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40.806908, -0.009761738, -38.551006)
+glb_scene = ExtResource("12_yc10j")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding24" parent="." unique_id=722909834 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.607754, 0.001, 36.052887)
+glb_scene = ExtResource("9_dp3eg")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding12" parent="." unique_id=1500463287 instance=ExtResource("2_model")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, -32.95156, 0, 8.828666)
+glb_scene = ExtResource("7_eb6dy")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding2" parent="." unique_id=439837486 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9381256, -1.9073486e-06, -2.8085797)
+glb_scene = ExtResource("7_o6xl0")
+scale_steps = -0.09999999999999964
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding13" parent="." unique_id=329004572 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 3.456502, -9.536743e-07, -15.634136)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding15" parent="." unique_id=1994985803 instance=ExtResource("2_model")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 2, 31.133034, -9.536743e-07, -19.4184)
+glb_scene = ExtResource("10_a8y0u")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding14" parent="." unique_id=1698890704 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 3.456502, -9.536743e-07, -22.632044)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding20" parent="." unique_id=1705955905 instance=ExtResource("2_model")]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1, -28.055, 0.001, -35.147)
+glb_scene = ExtResource("11_jkv2x")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding16" parent="." unique_id=1347956824 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 13.836787, -9.536743e-07, -33.001076)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding17" parent="." unique_id=2019679396 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 13.836787, -9.536743e-07, -40.184837)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding18" parent="." unique_id=907611983 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 31.702412, -9.536743e-07, -40.184837)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding19" parent="." unique_id=87947451 instance=ExtResource("2_model")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.8, 31.702412, -9.536743e-07, -32.93244)
+glb_scene = ExtResource("9_trceg")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding3" parent="." unique_id=955763423 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.85, 2.2075953, -1.9073486e-06, 27.678032)
+glb_scene = ExtResource("8_tipki")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding10" parent="." unique_id=562512489 instance=ExtResource("2_model")]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.9, -32.042847, -1.9073486e-06, 28.081808)
+glb_scene = ExtResource("9_choun")
+scale_steps = -0.2999999999999998
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding11" parent="." unique_id=218488411 instance=ExtResource("2_model")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.9, -31.458603, -1.9073486e-06, 19.710546)
+glb_scene = ExtResource("10_ya4ey")
+scale_steps = -0.2999999999999998
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding4" parent="." unique_id=1400667870 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.85, 2.2075953, -1.9073486e-06, 19.579956)
+glb_scene = ExtResource("8_tipki")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding6" parent="." unique_id=104298728 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.511433, -1.9073486e-06, 27.68202)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding7" parent="." unique_id=1580790515 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.500418, -1.9073486e-06, 23.149578)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding9" parent="." unique_id=657190683 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 9.477007)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding65" parent="." unique_id=2082843189 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 14.036654)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="ChunhuiBuilding5" parent="." unique_id=1587483247 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.85, 2.2075953, -1.9073486e-06, 11.622736)
+glb_scene = ExtResource("8_tipki")
+scale_steps = -0.20000000000000015
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="OverviewCamera" type="Camera3D" parent="." unique_id=1151460066]
+transform = Transform3D(0.9892035, -0.0526168, 0.1367771, 0, 0.9333222, 0.3590399, -0.1465487, -0.3551635, 0.9232455, -9, 25, 42)
+current = true
+fov = 52.0
+far = 250.0
+
+[node name="CampusAdditions" type="Node3D" parent="." unique_id=835085088]
+
+[node name="PlazaSculpture" parent="CampusAdditions" unique_id=2015511781 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4, 0, 9.211329)
+glb_scene = ExtResource("added_P05")
+scale_steps = -0.5
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp04" parent="CampusAdditions" unique_id=1255886223 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.125782, 0, 30.263672)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp05" parent="CampusAdditions" unique_id=816662837 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.548756, 0, 30.162098)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp13" parent="CampusAdditions" unique_id=414646651 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.497433, 2.3841858e-07, 34.2415)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp14" parent="CampusAdditions" unique_id=1614107226 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.497433, 2.3841858e-07, 23.122524)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp15" parent="CampusAdditions" unique_id=51396369 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.497433, 2.3841858e-07, 11.282977)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp16" parent="CampusAdditions" unique_id=468191355 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.150913, 2.3841858e-07, 0.797117)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp27" parent="CampusAdditions" unique_id=1462830514 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.699497, 2.3841858e-07, -11.896139)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp28" parent="CampusAdditions" unique_id=912057013 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.699497, 2.3841858e-07, -23.062418)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp29" parent="CampusAdditions" unique_id=609010820 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.699497, 2.3841858e-07, -43.70238)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp30" parent="CampusAdditions" unique_id=2144603767 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.877243, 2.3841858e-07, -43.70238)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp31" parent="CampusAdditions" unique_id=74956293 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5942917, 2.3841858e-07, -43.70238)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp35" parent="CampusAdditions" unique_id=815642541 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8230653, 1.1920929e-06, -28.87012)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp32" parent="CampusAdditions" unique_id=1125594097 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3160987, 2.3841858e-07, -44.072483)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp33" parent="CampusAdditions" unique_id=453004021 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.243927, 2.3841858e-07, -44.072483)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp34" parent="CampusAdditions" unique_id=1120093476 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.58568, 2.3841858e-07, -44.072483)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp06" parent="CampusAdditions" unique_id=1109230822 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.548756, 0, 25.025017)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp07" parent="CampusAdditions" unique_id=285239064 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091293, 0, 25.073458)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp08" parent="CampusAdditions" unique_id=1251238281 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091293, 0, 18.938196)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp10" parent="CampusAdditions" unique_id=940735685 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.091293, 0, 3.0005379)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp12" parent="CampusAdditions" unique_id=906807380 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.77853, 0, 0.28204584)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp11" parent="CampusAdditions" unique_id=932575174 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.95619, 0, 3.0005379)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp17" parent="CampusAdditions" unique_id=1988763946 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.694722, 0, 2.4718652)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp23" parent="CampusAdditions" unique_id=1980972593 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.504635, -4.7683716e-07, -19.702955)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp25" parent="CampusAdditions" unique_id=1330025559 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2760315, -4.7683716e-07, -10.595561)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp26" parent="CampusAdditions" unique_id=1657777994 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.445856, -4.7683716e-07, -10.595561)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp24" parent="CampusAdditions" unique_id=345909973 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.63005, 4.7683716e-07, -11.613287)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp18" parent="CampusAdditions" unique_id=995469211 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.373033, 0, 13.555342)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp19" parent="CampusAdditions" unique_id=466457549 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.373033, 0, 21.968138)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp20" parent="CampusAdditions" unique_id=966210840 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.373033, 0, 27.6497)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp21" parent="CampusAdditions" unique_id=1396775853 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.364908, 0, 34.13879)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp22" parent="CampusAdditions" unique_id=1889343364 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.357881, 0, 33.957455)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="PlazaLamp09" parent="CampusAdditions" unique_id=572292756 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.548347, 0, 18.836088)
+glb_scene = ExtResource("added_P06")
+scale_steps = -0.45
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="NorthGoal" parent="CampusAdditions" unique_id=982028607 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.454916, 0, 7.3077354)
+glb_scene = ExtResource("added_P08")
+scale_steps = -1.15
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="NorthGoal2" parent="CampusAdditions" unique_id=54005724 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.828, 0.001, -41.628)
+glb_scene = ExtResource("added_P08")
+scale_steps = -1.7999999999999998
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="NorthGoal3" parent="CampusAdditions" unique_id=681657631 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.828, 0.001, -31.50321)
+glb_scene = ExtResource("added_P08")
+scale_steps = -1.7999999999999998
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="SouthGoal" parent="CampusAdditions" unique_id=45650332 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 29.384314, 0, 30.299934)
+glb_scene = ExtResource("added_P08")
+scale_steps = -1.15
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop00" parent="CampusAdditions" unique_id=1431771137 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.155771, 0, -8.789403)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop05" parent="CampusAdditions" unique_id=826764436 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.292711, 0, -8.789403)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop10" parent="CampusAdditions" unique_id=1110588431 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.896229, 9.536743e-07, -42.164623)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop11" parent="CampusAdditions" unique_id=388163351 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.896229, 9.536743e-07, -38.362965)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop12" parent="CampusAdditions" unique_id=829155980 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.896229, 9.536743e-07, -34.632416)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop13" parent="CampusAdditions" unique_id=568741272 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.896229, 9.536743e-07, -30.863062)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop14" parent="CampusAdditions" unique_id=505105917 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.535078, 9.536743e-07, -30.863062)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop15" parent="CampusAdditions" unique_id=1307423552 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.535078, 9.536743e-07, -34.685623)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop16" parent="CampusAdditions" unique_id=2122782781 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.535078, 9.536743e-07, -38.433014)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop17" parent="CampusAdditions" unique_id=1837950455 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.535078, 9.536743e-07, -42.200603)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.2000000000000002
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop02" parent="CampusAdditions" unique_id=641147408 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.979046, 0, -8.789403)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop03" parent="CampusAdditions" unique_id=742416872 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.83122, 0, -8.789403)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop04" parent="CampusAdditions" unique_id=25232500 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.676216, 0, -8.789403)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop01" parent="CampusAdditions" unique_id=324750177 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 23.167738, 0, 0.55979264)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop07" parent="CampusAdditions" unique_id=185223613 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 27.966833, 0, 0.55979264)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop08" parent="CampusAdditions" unique_id=1783494715 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 32.833233, 0, 0.55979264)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop09" parent="CampusAdditions" unique_id=1491976212 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 37.666744, 0, 0.55979264)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="BasketballHoop06" parent="CampusAdditions" unique_id=450058152 instance=ExtResource("2_model")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.356224, 0, 0.55979264)
+glb_scene = ExtResource("added_P09")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence00" parent="CampusAdditions" unique_id=1127441237 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.544214, 0, -9.710339)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence10" parent="CampusAdditions" unique_id=1415472105 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.038713, 0, -9.710339)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence01" parent="CampusAdditions" unique_id=1962136673 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.067015, 0, -9.710339)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence02" parent="CampusAdditions" unique_id=694748299 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.53171, 0, -9.710339)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence03" parent="CampusAdditions" unique_id=1927774047 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -9.710339)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence08" parent="CampusAdditions" unique_id=1215472970 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.184122, 0, 4.7920456)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence11" parent="CampusAdditions" unique_id=960071870 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.267225, 0, -6.7098823)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence12" parent="CampusAdditions" unique_id=424339587 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.267225, 0, -1.1725893)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence09" parent="CampusAdditions" unique_id=1394868538 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.207775, 0, 32.508965)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="CourtFence07" parent="CampusAdditions" unique_id=867801422 instance=ExtResource("2_model")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 16.792324, 0, 1.7850223)
+glb_scene = ExtResource("added_P10")
+scale_steps = -0.48
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree000" parent="CampusAdditions" unique_id=431686909 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, -0.30901694, 0, 1, 0, 0.30901694, 0, 0.95105654, -41.77411, 0, -40)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.824
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree001" parent="CampusAdditions" unique_id=1188411608 instance=ExtResource("2_model")]
+transform = Transform3D(-0.5150383, 0, -0.8571672, 0, 1, 0, 0.8571672, 0, -0.5150383, -41.77411, 0, -35)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.933
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree002" parent="CampusAdditions" unique_id=309079393 instance=ExtResource("2_model")]
+transform = Transform3D(-0.5150383, 0, -0.8571672, 0, 1, 0, 0.8571672, 0, -0.5150383, -41.77411, 0, -28.032103)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.933
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree003" parent="CampusAdditions" unique_id=989274483 instance=ExtResource("2_model")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -41.77411, 0, -20)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.838
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree004" parent="CampusAdditions" unique_id=582069201 instance=ExtResource("2_model")]
+transform = Transform3D(0.01745232, 0, -0.9998477, 0, 1, 0, 0.9998477, 0, 0.01745232, -41.77411, 0, -15)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.982
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree008" parent="CampusAdditions" unique_id=719797180 instance=ExtResource("2_model")]
+transform = Transform3D(0.20791166, 0, 0.9781476, 0, 1, 0, -0.9781476, 0, 0.20791166, -41.915012, 0, 9.156605)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.85
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree009" parent="CampusAdditions" unique_id=2005084438 instance=ExtResource("2_model")]
+transform = Transform3D(-0.9135455, 0, -0.40673652, 0, 1, 0, 0.40673652, 0, -0.9135455, -41.995277, 0, 17)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.813
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree010" parent="CampusAdditions" unique_id=897451409 instance=ExtResource("2_model")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -41.995277, 0, 25)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.08
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree011" parent="CampusAdditions" unique_id=278386095 instance=ExtResource("2_model")]
+transform = Transform3D(0.9848077, 0, -0.17364845, 0, 1, 0, 0.17364845, 0, 0.9848077, -41.995277, 0, 32)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.844
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree024" parent="CampusAdditions" unique_id=1698048929 instance=ExtResource("2_model")]
+transform = Transform3D(0.20791166, 0, 0.9781476, 0, 1, 0, -0.9781476, 0, 0.20791166, -39.840946, 0, 34.14449)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.985
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree026" parent="CampusAdditions" unique_id=23437098 instance=ExtResource("2_model")]
+transform = Transform3D(-0.4539904, 0, 0.8910066, 0, 1, 0, -0.8910066, 0, -0.4539904, -34.525017, 0, 34.107166)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.984
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree029" parent="CampusAdditions" unique_id=1917178824 instance=ExtResource("2_model")]
+transform = Transform3D(-0.9945219, 0, 0.104528494, 0, 1, 0, -0.104528494, 0, -0.9945219, 1.6535267, 0, 33.82313)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.707
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree030" parent="CampusAdditions" unique_id=34568376 instance=ExtResource("2_model")]
+transform = Transform3D(0.6156615, 0, -0.7880107, 0, 1, 0, 0.7880107, 0, 0.6156615, 7.219295, 0, 33.863075)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.968
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree031" parent="CampusAdditions" unique_id=426741463 instance=ExtResource("2_model")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 14.683009, 0, 34.09616)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.871
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree038" parent="CampusAdditions" unique_id=90861782 instance=ExtResource("2_model")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 14.497245, 0, 29.546352)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.871
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree039" parent="CampusAdditions" unique_id=1430216470 instance=ExtResource("2_model")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 14.543759, 0, 25.880932)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.871
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree040" parent="CampusAdditions" unique_id=114205123 instance=ExtResource("2_model")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 14.162014, 1.9073486e-06, 20.456055)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.871
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree041" parent="CampusAdditions" unique_id=428491030 instance=ExtResource("2_model")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 14.301325, 2.861023e-06, 9.757818)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.871
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree034" parent="CampusAdditions" unique_id=39013526 instance=ExtResource("2_model")]
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, -36, 0, -9)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.984
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree037" parent="CampusAdditions" unique_id=2088272250 instance=ExtResource("2_model")]
+transform = Transform3D(0.99254614, 0, 0.12186935, 0, 1, 0, -0.12186935, 0, 0.99254614, -36, 0, -18)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.977
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree049" parent="CampusAdditions" unique_id=781965268 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1, 0, -0.2079117, 0, 0.9781476, -24, 0, 10)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree050" parent="CampusAdditions" unique_id=862338672 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -19.71052, 4.7683716e-07, 27.666447)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree051" parent="CampusAdditions" unique_id=146369508 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -19.71052, 4.7683716e-07, 22.209934)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree052" parent="CampusAdditions" unique_id=100663759 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -19.71052, 4.7683716e-07, 15.514196)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree053" parent="CampusAdditions" unique_id=1435469711 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -10.934236, 4.7683716e-07, 15.514196)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree054" parent="CampusAdditions" unique_id=24705066 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -10.934236, 4.7683716e-07, 22.566935)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree055" parent="CampusAdditions" unique_id=1781417589 instance=ExtResource("2_model")]
+transform = Transform3D(0.9781476, 0, 0.2079117, 0, 1.2, 0, -0.2079117, 0, 0.9781476, -10.934236, 4.7683716e-07, 27.404766)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.914
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree062" parent="CampusAdditions" unique_id=1753221826 instance=ExtResource("2_model")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 19.84294, 0, -21.627941)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.098
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree064" parent="CampusAdditions" unique_id=1690009933 instance=ExtResource("2_model")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 14.966286, 0, -22.995888)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.098
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree065" parent="CampusAdditions" unique_id=81547234 instance=ExtResource("2_model")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 19.597864, 0, -16.727785)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.098
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree063" parent="CampusAdditions" unique_id=1170017695 instance=ExtResource("2_model")]
+transform = Transform3D(-0.83867055, 0, 0.54463905, 0, 1, 0, -0.54463905, 0, -0.83867055, 15.435717, 0, -16.466022)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.836
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree069" parent="CampusAdditions" unique_id=809329197 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 42.598373, 0, 10)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree075" parent="CampusAdditions" unique_id=783709958 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 42.598373, 0, -6.336095)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree078" parent="CampusAdditions" unique_id=706726531 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 42.598373, 0, -23.972664)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree080" parent="CampusAdditions" unique_id=1477644294 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 42.598373, 0, -41.044144)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree082" parent="CampusAdditions" unique_id=1778367777 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 32.435604, 0, -44.043385)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree084" parent="CampusAdditions" unique_id=1153307958 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, 18.622736, 0, -44.043385)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree086" parent="CampusAdditions" unique_id=340763217 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, -24.4485, 0, -44.043385)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree088" parent="CampusAdditions" unique_id=385473451 instance=ExtResource("2_model")]
+transform = Transform3D(0.92050487, 0, -0.39073107, 0, 1, 0, 0.39073107, 0, 0.92050487, -38.640022, 0, -44.043385)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.783
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree070" parent="CampusAdditions" unique_id=1908564846 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 42.598373, 0, 17)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree073" parent="CampusAdditions" unique_id=880886518 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 42.598373, 0, 1.9452572)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree076" parent="CampusAdditions" unique_id=1145484052 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 42.598373, 0, -15.651184)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree079" parent="CampusAdditions" unique_id=1634463590 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 42.598373, 0, -31.946045)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree081" parent="CampusAdditions" unique_id=1182962658 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 38.40054, 0, -43.98719)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree083" parent="CampusAdditions" unique_id=2044434744 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 26.76328, 0, -43.98719)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree085" parent="CampusAdditions" unique_id=1096947517 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, 9.625959, 0, -43.98719)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree087" parent="CampusAdditions" unique_id=1395182524 instance=ExtResource("2_model")]
+transform = Transform3D(0.58778507, 0, -0.8090171, 0, 1, 0, 0.8090171, 0, 0.58778507, -31.116526, 0, -43.98719)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.092
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree071" parent="CampusAdditions" unique_id=75725203 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 42.598373, 0, 24)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree077" parent="CampusAdditions" unique_id=1435705010 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 37.550148, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree090" parent="CampusAdditions" unique_id=2071462318 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 29.338352, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree091" parent="CampusAdditions" unique_id=129215846 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 21.961092, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree092" parent="CampusAdditions" unique_id=1931099596 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 14.167873, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree093" parent="CampusAdditions" unique_id=1256117107 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 5.999072, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree098" parent="CampusAdditions" unique_id=270198301 instance=ExtResource("2_model")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, -31.554398, -9.536743e-07, 38.58763)
+glb_scene = ExtResource("added_V01")
+scale_steps = -0.699
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree072" parent="CampusAdditions" unique_id=88176074 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 42.598373, 0, 31)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree089" parent="CampusAdditions" unique_id=1843136450 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 33.40623, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree094" parent="CampusAdditions" unique_id=532663916 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 25.414627, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree095" parent="CampusAdditions" unique_id=577531789 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 18.10851, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree096" parent="CampusAdditions" unique_id=994605524 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 10.454453, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree097" parent="CampusAdditions" unique_id=1829202969 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, 1.489903, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Tree099" parent="CampusAdditions" unique_id=741163088 instance=ExtResource("2_model")]
+transform = Transform3D(0.46947166, 0, -0.88294756, 0, 1, 0, 0.88294756, 0, 0.46947166, -35.90348, 0, 38.528553)
+glb_scene = ExtResource("added_V01")
+scale_steps = -1.087
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Blossom00" parent="CampusAdditions" unique_id=1871006413 instance=ExtResource("2_model")]
+transform = Transform3D(-0.99254614, 0, 0.12186928, 0, 1, 0, -0.12186928, 0, -0.99254614, -38, 0, -15)
+glb_scene = ExtResource("added_V02")
+scale_steps = -0.95
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Blossom01" parent="CampusAdditions" unique_id=1800975635 instance=ExtResource("2_model")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 14.317892, 1.9073486e-06, 17.763512)
+glb_scene = ExtResource("added_V02")
+scale_steps = -0.95
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Blossom03" parent="CampusAdditions" unique_id=1004123671 instance=ExtResource("2_model")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 14.441863, 1.9073486e-06, 11.906438)
+glb_scene = ExtResource("added_V02")
+scale_steps = -0.95
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Blossom02" parent="CampusAdditions" unique_id=998948957 instance=ExtResource("2_model")]
+transform = Transform3D(0.42261824, 0, 0.9063078, 0, 1, 0, -0.9063078, 0, 0.42261824, -41.74614, 0, 2.894812)
+glb_scene = ExtResource("added_V02")
+scale_steps = -0.95
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge08" parent="CampusAdditions" unique_id=604372646 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.405443, 0, -11.785665)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge09" parent="CampusAdditions" unique_id=991825815 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.613599, 0, -11.785665)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge12" parent="CampusAdditions" unique_id=1547609513 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.960856, 0, -7.813843)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge13" parent="CampusAdditions" unique_id=2056200393 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.25967, 0, -7.813843)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge14" parent="CampusAdditions" unique_id=1253544631 instance=ExtResource("2_model")]
+transform = Transform3D(-0.0065201498, 0, 0.9999787, 0, 1, 0, -0.9999787, 0, -0.0065201498, -21.823616, 0, -10.094147)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge15" parent="CampusAdditions" unique_id=1818434642 instance=ExtResource("2_model")]
+transform = Transform3D(-0.0065201498, 0, 0.9999787, 0, 1, 0, -0.9999787, 0, -0.0065201498, -10.23653, 0, -10.094147)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge10" parent="CampusAdditions" unique_id=428196183 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.85394, 0, 28.68877)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="Hedge11" parent="CampusAdditions" unique_id=1675863983 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -41.85394, 0, 20.658298)
+glb_scene = ExtResource("added_V03")
+scale_steps = -0.65
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup05" parent="CampusAdditions" unique_id=954459866 instance=ExtResource("2_model")]
+transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, 10.859671, 0, 33.638096)
+glb_scene = ExtResource("added_V04")
+scale_steps = -0.7
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup06" parent="CampusAdditions" unique_id=1957592236 instance=ExtResource("2_model")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, -37, 0, -17)
+glb_scene = ExtResource("added_V05")
+scale_steps = -1.0
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup16" parent="CampusAdditions" unique_id=1294732962 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42, 0, 14)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup20" parent="CampusAdditions" unique_id=193463893 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.322445, 0, 27.65797)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup21" parent="CampusAdditions" unique_id=798147575 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.322445, 0, 19.638618)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup22" parent="CampusAdditions" unique_id=437921244 instance=ExtResource("2_model")]
+transform = Transform3D(0.53932476, 0, 0.8420978, 0, 1, 0, -0.8420978, 0, 0.53932476, -24.855074, 0, 11.78809)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup17" parent="CampusAdditions" unique_id=1362689269 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42, 0, 6.319256)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup18" parent="CampusAdditions" unique_id=1000982100 instance=ExtResource("2_model")]
+transform = Transform3D(0.9982321, 0, 0.059435725, 0, 1, 0, -0.059435725, 0, 0.9982321, -36.368793, 0, 2.0464973)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup23" parent="CampusAdditions" unique_id=602692129 instance=ExtResource("2_model")]
+transform = Transform3D(0.9998855, 0, 0.015141148, 0, 1, 0, -0.015141148, 0, 0.9998855, -4.662175, -9.536743e-07, -29.167896)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup24" parent="CampusAdditions" unique_id=642498130 instance=ExtResource("2_model")]
+transform = Transform3D(0.9998855, 0, 0.015141148, 0, 1, 0, -0.015141148, 0, 0.9998855, 1.0884814, -9.536743e-07, -29.167896)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup25" parent="CampusAdditions" unique_id=1302772696 instance=ExtResource("2_model")]
+transform = Transform3D(0.9998855, 0, 0.015141148, 0, 1, 0, -0.015141148, 0, 0.9998855, 1.0884814, -9.536743e-07, -44.131195)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup26" parent="CampusAdditions" unique_id=1992967106 instance=ExtResource("2_model")]
+transform = Transform3D(0.9998855, 0, 0.015141148, 0, 1, 0, -0.015141148, 0, 0.9998855, -3.9612727, -9.536743e-07, -44.131195)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
+[node name="GardenGroup19" parent="CampusAdditions" unique_id=1329844374 instance=ExtResource("2_model")]
+transform = Transform3D(0.9870937, 0, -0.1601447, 0, 1, 0, 0.1601447, 0, 0.9870937, -32.89414, 0, 0.7465706)
+glb_scene = ExtResource("added_V06")
+scale_steps = -1.05
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+

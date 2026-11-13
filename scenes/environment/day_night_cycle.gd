@@ -1,38 +1,24 @@
 extends Node
 
-## A full in-game day takes this many real seconds.
-@export_range(1.0, 86400.0, 1.0, "or_greater") var day_duration_seconds := 300.0
-@export_range(0.0, 24.0, 0.01) var start_hour := 10.0
 ## Compass bearing of sunrise in the XZ plane, in degrees from +X towards +Z.
 @export_range(-180.0, 180.0, 1.0) var sunrise_bearing := 0.0
-@export var time_running := true
-
-var current_hour: float
 
 @onready var sun: DirectionalLight3D = $"../Sun"
 @onready var moon: DirectionalLight3D = $"../Moon"
 @onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
 
 func _ready() -> void:
-	current_hour = fposmod(start_hour, 24.0)
 	# Keep runtime changes local to this scene instance.
 	world_environment.environment = world_environment.environment.duplicate(true)
+	GameTime.time_changed.connect(_on_time_changed)
 	_update_lighting()
 
-func _process(delta: float) -> void:
-	if time_running and day_duration_seconds > 0.0:
-		current_hour = fposmod(current_hour + delta * 24.0 / day_duration_seconds, 24.0)
-		_update_lighting()
-
-## Set the clock directly, including when the clock is paused.
-func set_time(hour: float) -> void:
-	current_hour = fposmod(hour, 24.0)
-	if is_node_ready():
-		_update_lighting()
+func _on_time_changed(_hour: float) -> void:
+	_update_lighting()
 
 func _update_lighting() -> void:
 	# 06:00 and 18:00 lie on the horizon; noon is overhead.
-	var angle := (current_hour - 6.0) * TAU / 24.0
+	var angle := (GameTime.current_hour - 6.0) * TAU / 24.0
 	var bearing := deg_to_rad(sunrise_bearing)
 	var sun_position := Vector3(cos(angle) * cos(bearing), sin(angle), cos(angle) * sin(bearing))
 	_point_light(sun, sun_position)

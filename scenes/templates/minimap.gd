@@ -5,14 +5,14 @@ const MAP_SIZE := 260
 const MAP_SPAN := 35.0
 const NORTH := Vector3(0, 0, -1)
 
-@onready var player: Node3D = get_node("../../StudentCharacter")
-@onready var view_pivot: Node3D = get_node("../../StudentCharacter/CameraPivot")
+var player: Node3D
+var view_pivot: Node3D
 var map_camera: Camera3D
 var map_view: SubViewport
 var north_screen := Vector2.UP
 var overlay: Control
 var clock_label: Label
-@onready var day_night_cycle: Node = get_node("../../DayNightCycle")
+
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -68,10 +68,16 @@ func _create_clock() -> void:
 	_update_clock()
 
 func _update_clock() -> void:
-	var total_minutes := int(floor(day_night_cycle.current_hour * 60.0)) % 1440
+	var total_minutes := int(floor(GameTime.current_hour * 60.0)) % 1440
 	clock_label.text = "%02d:%02d" % [int(total_minutes / 60), total_minutes % 60]
 
+func set_target(target: Node3D, camera_pivot: Node3D) -> void:
+	player = target
+	view_pivot = camera_pivot
+
 func _process(_delta: float) -> void:
+	if not is_instance_valid(player) or not is_instance_valid(view_pivot):
+		return
 	var forward := -view_pivot.global_basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
