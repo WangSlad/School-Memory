@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/teaching_building/teaching_building.tscn" id="building"]
+[ext_resource type="Shader" path="res://scenes/environment/campus_sky.gdshader" id="sky"]
+[ext_resource type="Texture2D" path="res://assets/BG01_horizon_平面.png" id="horizon"]
+[ext_resource type="Script" path="res://scenes/environment/day_night_cycle.gd" id="cycle"]
+[ext_resource type="Script" path="res://scenes/templates/campus_music.gd" id="music"]
+
+[sub_resource type="ShaderMaterial" id="SkyMaterial"]
+shader = ExtResource("sky")
+shader_parameter/daylight = 1.0
+shader_parameter/horizon_texture = ExtResource("horizon")
+shader_parameter/distant_haze = Color(0.4, 0.57, 0.64, 1)
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMaterial")
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_color = Color(0.86174446, 0.90882635, 0.99946314, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.3
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 5.0
+ssao_enabled = true
+ssao_radius = 1.5
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_strength = 0.75
+
+[node name="teaching_building1" type="Node3D"]
+
+[node name="Building" parent="." instance=ExtResource("building")]
+
+[node name="DefaultSpawn" type="Marker3D" parent="."]
+position = Vector3(118.4, 0.08, 2.4)
+
+[node name="CampusMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+script = ExtResource("music")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+directional_shadow_max_distance = 160.0
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+directional_shadow_max_distance = 160.0
+
+[node name="DayNightCycle" type="Node" parent="."]
+script = ExtResource("cycle")
