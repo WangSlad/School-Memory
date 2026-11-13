@@ -10,6 +10,7 @@ const FACADE_RELIEF := preload("res://scenes/teaching_building/facade_relief.gd"
 const JOINERY_DETAIL := preload("res://scenes/teaching_building/joinery_detail.gd")
 const GLAZING_PANELS := preload("res://scenes/teaching_building/glazing_panels.gd")
 const RESTROOM_CONVERSION := preload("res://scenes/teaching_building/restroom_conversion.gd")
+const CEILING_LIGHTS := preload("res://scenes/teaching_building/ceiling_lights.gd")
 const FIVE_FLOOR_SIGNS := preload("res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_sign_five_平面.png")
 
 @export_group("Appearance")
@@ -57,10 +58,45 @@ func _ready() -> void:
 		var restrooms := RESTROOM_CONVERSION.new()
 		restrooms.name = "Restrooms"
 		add_child(restrooms)
+	var ceiling_lights := CEILING_LIGHTS.new()
+	ceiling_lights.name = "CeilingLights"
+	add_child(ceiling_lights)
+
+## Continuous weights avoid hard switches at the corridor/stair boundary.
+func get_camera_region(world_position: Vector3) -> Dictionary:
+	var point := to_local(world_position)
+	var floor_index := clampi(int(floor((point.y + 0.1) / FLOOR_HEIGHT)), 0, FLOOR_COUNT - 1)
+	var floor_y := floor_index * FLOOR_HEIGHT
+	var stair_weight := 0.0
+	for center: float in STAIR_CENTERS:
+		var across := 1.0 - smoothstep(2.15, 3.5, absf(point.x - center))
+		var along := (1.0 - smoothstep(0.8, 3.0, point.z)) * smoothstep(-7.8, -7.2, point.z)
+		stair_weight = maxf(stair_weight, across * along)
+	var region := "stairs" if stair_weight > 0.5 else ("room" if point.z < 0.25 else "corridor")
+	return {"name": region, "stair_weight": stair_weight,
+		"min_height": point.y + 0.2,
+		"max_height": lerpf(floor_y + FLOOR_HEIGHT - 0.4, point.y + 2.5, stair_weight)}
+
+func get_minimap_slice(world_position: Vector3, previous_floor: int = -1) -> Dictionary:
+	var point := to_local(world_position)
+	var index := clampi(int(floor((point.y + 0.08) / FLOOR_HEIGHT)), 0, FLOOR_COUNT - 1)
+	# A small landing deadband prevents the floor label oscillating on stair seams.
+	if previous_floor >= 0:
+		if index < previous_floor and point.y > previous_floor * FLOOR_HEIGHT - 0.25:
+			index = previous_floor
+		elif index > previous_floor and point.y < index * FLOOR_HEIGHT - 0.03:
+			index = previous_floor
+	return {"floor_index": index, "floor_y": index * FLOOR_HEIGHT}
 
 func _build_model_collisions(node: Node) -> void:
 	if node is MeshInstance3D and not String(node.name).begins_with("solid_midlanding_") and not String(node.name).begins_with("solid_toplanding_") and (String(node.name).contains("_solid_") or String(node.name).begins_with("solid_")):
 		node.create_trimesh_collision()
+		# Rails keep their player collision but do not push the camera inward.
+		var label := String(node.name)
+		var rail := label.contains("Railing metal") or label.contains("Transparent blue green glass") or label.contains("balcony_end_glass") or label.contains("new_glass")
+		for child in node.get_children():
+			if child is StaticBody3D and not rail:
+				child.set_collision_layer_value(3, true)
 	for child in node.get_children():
 		if not child is StaticBody3D:
 			_build_model_collisions(child)
@@ -79,6 +115,7 @@ func _walk_quad(faces: PackedVector3Array, x0: float, x1: float, z0: float, z1: 
 func _build_stairs_collision() -> void:
 	var body := StaticBody3D.new()
 	body.name = "StairWalkSurfaces"
+	body.set_collision_layer_value(3, true)
 	add_child(body)
 	var faces := PackedVector3Array()
 	for center in STAIR_CENTERS:
@@ -97,11 +134,14 @@ func _build_stairs_collision() -> void:
 	collision.shape = shape
 	body.add_child(collision)
 	# Central handrail retains a separate continuous collision per flight.
+	var rails := StaticBody3D.new()
+	rails.name = "StairHandrails"
+	add_child(rails)
 	for center in STAIR_CENTERS:
 		for floor_index in range(4):
 			var h := floor_index * FLOOR_HEIGHT
-			_guard(body, center - 0.08, h, h + FLOOR_HEIGHT / 2.0, -0.8, -4.4)
-			_guard(body, center + 0.08, h + FLOOR_HEIGHT / 2.0, h + FLOOR_HEIGHT, -4.4, -0.8)
+			_guard(rails, center - 0.08, h, h + FLOOR_HEIGHT / 2.0, -0.8, -4.4)
+			_guard(rails, center + 0.08, h + FLOOR_HEIGHT / 2.0, h + FLOOR_HEIGHT, -4.4, -0.8)
 
 func _guard(body: StaticBody3D, x: float, y0: float, y1: float, z0: float, z1: float) -> void:
 	var collision := CollisionShape3D.new()

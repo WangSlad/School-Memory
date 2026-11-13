@@ -1,4 +1,8 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://core/world_settings.gd" id="settings"]
+
+[ext_resource type="Script" path="res://core/interaction_area.gd" id="interaction"]
 
 [ext_resource type="PackedScene" path="res://scenes/teaching_building/teaching_building.tscn" id="building"]
 [ext_resource type="Shader" path="res://scenes/environment/campus_sky.gdshader" id="sky"]
@@ -21,19 +25,24 @@ sky = SubResource("Sky")
 ambient_light_source = 3
 ambient_light_color = Color(0.86174446, 0.90882635, 0.99946314, 1)
 ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.3
+ambient_light_energy = 0.4
 reflected_light_source = 2
 tonemap_mode = 2
 tonemap_white = 5.0
 ssao_enabled = true
-ssao_radius = 1.5
-ssil_enabled = true
-sdfgi_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 0.6
+ssao_light_affect = 0.15
+ssil_enabled = false
+sdfgi_enabled = false
 sdfgi_use_occlusion = true
 glow_enabled = true
 glow_strength = 0.75
 
 [node name="teaching_building1" type="Node3D"]
+script = ExtResource("settings")
+character_scale = 1.0
+movement_speed = 4.0
 
 [node name="Building" parent="." instance=ExtResource("building")]
 
@@ -48,12 +57,28 @@ script = ExtResource("music")
 environment = SubResource("Environment")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
+light_angular_distance = 0.5
 shadow_enabled = true
-directional_shadow_max_distance = 160.0
+directional_shadow_max_distance = 80.0
+directional_shadow_blend_splits = true
 
 [node name="Moon" type="DirectionalLight3D" parent="."]
+light_color = Color(0.55, 0.68, 1, 1)
 shadow_enabled = true
-directional_shadow_max_distance = 160.0
+directional_shadow_max_distance = 80.0
+directional_shadow_blend_splits = true
 
 [node name="DayNightCycle" type="Node" parent="."]
 script = ExtResource("cycle")
+noon_elevation = 60.0
+night_ambient_energy = 0.12
+day_ambient_energy = 0.4
+
+[node name="TeachingExit" type="Area3D" parent="."]
+position = Vector3(118.4, 0.5, 1.4)
+script = ExtResource("interaction")
+prompt = "离开教学楼"
+target_world_path = "res://world/campus.tscn"
+spawn_name = &"TeachingReturnSpawn"
+interaction_range = 0.75
+show_exit_marker = true

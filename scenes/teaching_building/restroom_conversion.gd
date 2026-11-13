@@ -86,6 +86,7 @@ func _ready() -> void:
 	for level in range(5):
 		var body := StaticBody3D.new()
 		body.name = "Floor%02d_RestroomCollision" % (level + 1)
+		body.set_collision_layer_value(3, true)
 		body.position.y = level * HEIGHT
 		var collision := CollisionShape3D.new()
 		var shape := ConcavePolygonShape3D.new()

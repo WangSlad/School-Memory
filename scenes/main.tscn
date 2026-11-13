@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkpr3on0d8kgo"]
+[gd_scene format=3 uid="uid://dkpr3on0d8kgo"]
 
-[ext_resource type="Script" path="res://core/game_root.gd" id="root"]
 [ext_resource type="PackedScene" path="res://world/campus.tscn" id="campus"]
-[ext_resource type="PackedScene" path="res://scenes/templates/student_character.tscn" id="player"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" path="res://scenes/templates/student_character.tscn" id="player"]
+[ext_resource type="Script" uid="uid://bbx28ai66yk6x" path="res://core/game_root.gd" id="root"]
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node3D" unique_id=636507847]
 script = ExtResource("root")
 
-[node name="World" type="Node3D" parent="."]
+[node name="World" type="Node3D" parent="." unique_id=1769900725]
 
-[node name="Campus" parent="World" instance=ExtResource("campus")]
+[node name="Campus" parent="World" unique_id=718394974 instance=ExtResource("campus")]
 
-[node name="StudentCharacter" parent="." instance=ExtResource("player")]
+[node name="StudentCharacter" parent="." unique_id=1524475715 instance=ExtResource("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 29)
 movement_speed = 2.0
-character_scale = 0.5
+character_scale = 0.75
 soften_materials = true
 
-[node name="HUD" parent="." instance=ExtResource("hud")]
+[node name="HUD" parent="." unique_id=1234535707 instance=ExtResource("hud")]

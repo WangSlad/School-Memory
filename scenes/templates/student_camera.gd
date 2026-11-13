@@ -3,6 +3,19 @@ extends Node3D
 ## FREE preserves the original mouse orbit and zoom. FIXED accepts a preset pose.
 enum Mode { FREE, FIXED }
 var mode: Mode = Mode.FREE
+const INDOOR_CAMERA := preload("res://scenes/teaching_building/indoor_camera.gd")
+var _indoor_camera: RefCounted
+
+func configure_world(world: Node) -> void:
+	var building := world.get_node_or_null("Building")
+	if _indoor_camera != null:
+		if building == _indoor_camera.building:
+			return
+		_indoor_camera.detach()
+		_indoor_camera = null
+	if building != null and building.has_method("get_camera_region"):
+		_restore_transparency()
+		_indoor_camera = INDOOR_CAMERA.new(self, building)
 
 ## Presets are optional dictionaries: pitch, yaw (radians), and distance.
 ## Missing fields retain the current pose; switching back to FREE preserves it.
@@ -12,7 +25,10 @@ func apply_preset(preset: Dictionary, new_mode: Mode = Mode.FREE) -> void:
 	if preset.has("yaw"):
 		rotation.y = float(preset["yaw"])
 	if preset.has("distance"):
-		$Camera3D.position.z = clampf(float(preset["distance"]), MIN_CAMERA_DISTANCE, MAX_CAMERA_DISTANCE)
+		if _indoor_camera != null:
+			_indoor_camera.requested_distance = clampf(float(preset["distance"]), 1.2, 5.0)
+		else:
+			$Camera3D.position.z = clampf(float(preset["distance"]), MIN_CAMERA_DISTANCE, MAX_CAMERA_DISTANCE)
 	mode = new_mode
 
 func set_mode(new_mode: Mode) -> void:
@@ -41,6 +57,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if mode == Mode.FREE and _indoor_camera != null and _indoor_camera.handle_input(event):
+		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif mode == Mode.FREE and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
@@ -58,6 +76,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _indoor_camera != null:
+		_indoor_camera.update(delta)
+		return
 	_find_occluders()
 	_update_transparency(delta)
 
@@ -121,10 +142,17 @@ func _update_transparency(delta: float) -> void:
 			_original_transparency.erase(mesh)
 
 
-func _exit_tree() -> void:
+func _restore_transparency() -> void:
 	for mesh in _original_transparency:
 		if is_instance_valid(mesh):
 			mesh.transparency = _original_transparency[mesh]
 	_original_transparency.clear()
+	_occluded.clear()
+
+func _exit_tree() -> void:
+	_restore_transparency()
+	if _indoor_camera != null:
+		_indoor_camera.detach()
+		_indoor_camera = null
 	if not Engine.is_editor_hint():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

@@ -1,9 +1,10 @@
 extends Control
 
-# The map uses the same world as the main camera, so paths and buildings stay in sync.
+# Campus uses the live world; interiors use an isolated current-floor cutaway.
 const MAP_SIZE := 260
 const MAP_SPAN := 35.0
 const NORTH := Vector3(0, 0, -1)
+const INDOOR_MAP := preload("res://scenes/teaching_building/indoor_minimap.gd")
 
 var player: Node3D
 var view_pivot: Node3D
@@ -12,6 +13,12 @@ var map_view: SubViewport
 var north_screen := Vector2.UP
 var overlay: Control
 var clock_label: Label
+var floor_label: Label
+var current_floor := -1
+var _building: Node3D
+var _indoor_environment: Environment
+var _indoor_map: Node3D
+var _indoor_world := World3D.new()
 
 
 func _ready() -> void:
@@ -44,6 +51,21 @@ func _ready() -> void:
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(overlay)
 	_create_clock()
+	floor_label = Label.new()
+	floor_label.position = Vector2(12, -39)
+	floor_label.add_theme_font_size_override("font_size", 24)
+	floor_label.add_theme_color_override("font_color", Color("f5eaf7"))
+	floor_label.add_theme_color_override("font_shadow_color", Color("221b2a"))
+	floor_label.add_theme_constant_override("shadow_offset_y", 2)
+	floor_label.hide()
+	add_child(floor_label)
+	_indoor_environment = Environment.new()
+	_indoor_environment.background_mode = Environment.BG_COLOR
+	_indoor_environment.background_color = Color("29323a")
+	_indoor_environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	_indoor_environment.ambient_light_color = Color.WHITE
+	_indoor_environment.ambient_light_energy = 0.5
+	_indoor_environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 
 func _create_clock() -> void:
 	var panel := PanelContainer.new()
@@ -75,14 +97,47 @@ func set_target(target: Node3D, camera_pivot: Node3D) -> void:
 	player = target
 	view_pivot = camera_pivot
 
+func configure_world(world: Node) -> void:
+	if is_instance_valid(_indoor_map):
+		map_view.remove_child(_indoor_map)
+		_indoor_map.queue_free()
+		_indoor_map = null
+	var provider := world.get_node_or_null("Building")
+	_building = provider if provider != null and provider.has_method("get_minimap_slice") else null
+	# Retain the private world across switches so the renderer can detach the
+	# old viewport before its scenario is released.
+	map_view.world_3d = _indoor_world if _building != null else get_viewport().world_3d
+	if _building != null:
+		_indoor_map = INDOOR_MAP.new()
+		map_view.add_child(_indoor_map)
+		_indoor_map.build(_building)
+	current_floor = -1
+	floor_label.visible = _building != null
+	map_camera.environment = _indoor_environment if _building != null else null
+	map_camera.size = 28.0 if _building != null else MAP_SPAN
+	map_camera.near = 0.05
+	map_camera.far = 80.0 if _building != null else 400.0
+	if is_instance_valid(player):
+		_process(0.0)
+
 func _process(_delta: float) -> void:
 	if not is_instance_valid(player) or not is_instance_valid(view_pivot):
 		return
-	var forward := -view_pivot.global_basis.z
-	forward.y = 0.0
-	forward = forward.normalized()
+	# Pitch may freely pass overhead; the map heading follows yaw only.
+	var forward := Vector3.UP.cross(view_pivot.global_basis.x).normalized()
 	var target := player.global_position
-	map_camera.global_position = target + Vector3.UP * 150.0
+	if is_instance_valid(_building):
+		var slice: Dictionary = _building.get_minimap_slice(target, current_floor)
+		current_floor = slice.floor_index
+		floor_label.text = "%dF" % (current_floor + 1)
+		var point := _building.to_local(target)
+		point.y = slice.floor_y
+		target = _building.to_global(Vector3(point.x, slice.floor_y, point.z))
+		_indoor_map.show_floor(current_floor, target.y)
+		# An angled cutaway shows the wall faces and stair flights clearly.
+		map_camera.global_position = target + Vector3.UP * 40.0 - forward * 17.0
+	else:
+		map_camera.global_position = target + Vector3.UP * 150.0
 	map_camera.look_at(target, forward)
 	var right := map_camera.global_basis.x
 	north_screen = Vector2(NORTH.dot(right), -NORTH.dot(forward)).normalized()

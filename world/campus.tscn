@@ -1,5 +1,7 @@
 [gd_scene format=3]
 
+[ext_resource type="Script" path="res://core/interaction_area.gd" id="interaction"]
+
 [ext_resource type="PackedScene" path="res://scenes/templates/plane_element.tscn" id="1_plane"]
 [ext_resource type="PackedScene" path="res://scenes/templates/model_element.tscn" id="2_model"]
 [ext_resource type="Texture2D" uid="uid://cm0upnuca0s3f" path="res://assets/campus_ground_detailed.png" id="3_ground"]
@@ -2092,3 +2094,42 @@ clay_sheen = 0.3
 
 [node name="DefaultSpawn" type="Marker3D" parent="."]
 position = Vector3(-15, 0.1, 29)
+
+[node name="TeachingEntrance" type="Area3D" parent="."]
+position = Vector3(2.2, 0.5, 30.3)
+script = ExtResource("interaction")
+prompt = "进入教学楼"
+target_world_path = "res://world/teaching_building1.tscn"
+spawn_name = &"DefaultSpawn"
+interaction_range = 0.75
+show_book_marker = true
+
+[node name="TeachingReturnSpawn" type="Marker3D" parent="."]
+position = Vector3(2.2, 0.1, 30.2)
+rotation = Vector3(0, 3.141593, 0)
+
+[node name="Teaching2Entrance" type="Area3D" parent="."]
+position = Vector3(2.2, 0.5, 22.201924)
+script = ExtResource("interaction")
+prompt = "进入第二教学楼"
+target_world_path = "res://world/teaching_building2.tscn"
+spawn_name = &"DefaultSpawn"
+interaction_range = 0.75
+show_book_marker = true
+
+[node name="Teaching2ReturnSpawn" type="Marker3D" parent="."]
+position = Vector3(2.2, 0.1, 22.101924)
+rotation = Vector3(0, 3.141593, 0)
+
+[node name="Teaching3Entrance" type="Area3D" parent="."]
+position = Vector3(2.2, 0.5, 14.244704)
+script = ExtResource("interaction")
+prompt = "进入第三教学楼"
+target_world_path = "res://world/teaching_building3.tscn"
+spawn_name = &"DefaultSpawn"
+interaction_range = 0.75
+show_book_marker = true
+
+[node name="Teaching3ReturnSpawn" type="Marker3D" parent="."]
+position = Vector3(2.2, 0.1, 14.144704)
+rotation = Vector3(0, 3.141593, 0)

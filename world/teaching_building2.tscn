@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://core/world_settings.gd" id="settings"]
+
+[ext_resource type="Script" path="res://core/interaction_area.gd" id="interaction"]
+
+[ext_resource type="PackedScene" path="res://scenes/teaching_building/teaching_building.tscn" id="building"]
+[ext_resource type="Shader" path="res://scenes/environment/campus_sky.gdshader" id="sky"]
+[ext_resource type="Texture2D" path="res://assets/BG01_horizon_平面.png" id="horizon"]
+[ext_resource type="Script" path="res://scenes/environment/day_night_cycle.gd" id="cycle"]
+[ext_resource type="Script" path="res://scenes/templates/campus_music.gd" id="music"]
+
+[sub_resource type="ShaderMaterial" id="SkyMaterial"]
+shader = ExtResource("sky")
+shader_parameter/daylight = 1.0
+shader_parameter/horizon_texture = ExtResource("horizon")
+shader_parameter/distant_haze = Color(0.4, 0.57, 0.64, 1)
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMaterial")
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_color = Color(0.86174446, 0.90882635, 0.99946314, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.4
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 5.0
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 0.6
+ssao_light_affect = 0.15
+ssil_enabled = false
+sdfgi_enabled = false
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_strength = 0.75
+
+[node name="teaching_building2" type="Node3D"]
+script = ExtResource("settings")
+character_scale = 1.0
+movement_speed = 4.0
+
+[node name="Building" parent="." instance=ExtResource("building")]
+
+[node name="DefaultSpawn" type="Marker3D" parent="."]
+position = Vector3(118.4, 0.08, 2.4)
+
+[node name="CampusMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+script = ExtResource("music")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+light_angular_distance = 0.5
+shadow_enabled = true
+directional_shadow_max_distance = 80.0
+directional_shadow_blend_splits = true
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+light_color = Color(0.55, 0.68, 1, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 80.0
+directional_shadow_blend_splits = true
+
+[node name="DayNightCycle" type="Node" parent="."]
+script = ExtResource("cycle")
+noon_elevation = 60.0
+night_ambient_energy = 0.12
+day_ambient_energy = 0.4
+
+[node name="TeachingExit" type="Area3D" parent="."]
+position = Vector3(118.4, 0.5, 1.4)
+script = ExtResource("interaction")
+prompt = "离开教学楼"
+target_world_path = "res://world/campus.tscn"
+spawn_name = &"Teaching2ReturnSpawn"
+interaction_range = 0.75
+show_exit_marker = true

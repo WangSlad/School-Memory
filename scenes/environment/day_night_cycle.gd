@@ -2,6 +2,11 @@ extends Node
 
 ## Compass bearing of sunrise in the XZ plane, in degrees from +X towards +Z.
 @export_range(-180.0, 180.0, 1.0) var sunrise_bearing := 0.0
+## Lower elevations keep sunlight entering windows instead of only hitting roofs.
+@export_range(10.0, 90.0, 1.0) var noon_elevation := 90.0
+## Per-world ambient levels keep covered interiors readable through the day.
+@export_range(0.0, 2.0, 0.01) var night_ambient_energy := 0.035
+@export_range(0.0, 2.0, 0.01) var day_ambient_energy := 0.3
 
 @onready var sun: DirectionalLight3D = $"../Sun"
 @onready var moon: DirectionalLight3D = $"../Moon"
@@ -21,10 +26,13 @@ func _on_time_changed(_hour: float) -> void:
 	_update_lighting()
 
 func _update_lighting() -> void:
-	# 06:00 and 18:00 lie on the horizon; noon is overhead.
+	# Tilt the daily arc around the sunrise axis for each world's orientation.
 	var angle := (GameTime.current_hour - 6.0) * TAU / 24.0
 	var bearing := deg_to_rad(sunrise_bearing)
-	var sun_position := Vector3(cos(angle) * cos(bearing), sin(angle), cos(angle) * sin(bearing))
+	var elevation := deg_to_rad(noon_elevation)
+	var sunrise_axis := Vector3(cos(bearing), 0.0, sin(bearing))
+	var noon_axis := Vector3(-sin(bearing) * cos(elevation), sin(elevation), cos(bearing) * cos(elevation))
+	var sun_position := sunrise_axis * cos(angle) + noon_axis * sin(angle)
 	_point_light(sun, sun_position)
 	_point_light(moon, -sun_position)
 
@@ -35,7 +43,7 @@ func _update_lighting() -> void:
 	var warm := 1.0 - smoothstep(0.0, 0.35, sun_position.y)
 	sun.light_color = Color(1.0, 0.82, 0.52).lerp(Color(1.0, 0.94, 0.82), 1.0 - warm)
 	var environment := world_environment.environment
-	environment.ambient_light_energy = lerpf(0.035, 0.3, daylight)
+	environment.ambient_light_energy = lerpf(night_ambient_energy, day_ambient_energy, daylight)
 	environment.ambient_light_color = Color(0.35, 0.43, 0.65).lerp(Color(0.86, 0.91, 1.0), daylight)
 	var sky_material := environment.sky.sky_material as ShaderMaterial
 	if sky_material:
