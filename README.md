@@ -1,7 +1,7 @@
 # School Memory
 ## This is a utopian memroy for all guys of ShouXian No.1 Middle School
 ## Author:  WangSlad
-## Collabortater:  Ruizhe,Yang@NPC development
+## Collabortator:  Ruizhe,Yang@NPC development
 ## Contacts:
 ### Wechat : WangSlad  QQ : 1799804728
 
