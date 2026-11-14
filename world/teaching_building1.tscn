@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
+[ext_resource type="PackedScene" path="res://scenes/templates/zou_ai_min.tscn" id="zou_ai_min"]
 [ext_resource type="Script" path="res://core/world_settings.gd" id="settings"]
 
 [ext_resource type="Script" path="res://core/interaction_area.gd" id="interaction"]
@@ -82,3 +83,6 @@ target_world_path = "res://world/campus.tscn"
 spawn_name = &"TeachingReturnSpawn"
 interaction_range = 0.75
 show_exit_marker = true
+
+[node name="zou_ai_min" parent="." instance=ExtResource("zou_ai_min")]
+position = Vector3(105.235, 17.28, 1.5)

@@ -14,6 +14,8 @@ var _suppressed_areas: Array[Area3D] = []
 var _prompt: PanelContainer
 var _prompt_label: Label
 var _fade: ColorRect
+var _notice: PanelContainer
+var _notice_tween: Tween
 var _default_character_scale := 1.0
 var _default_movement_speed := 4.0
 
@@ -25,6 +27,7 @@ func _ready() -> void:
   _apply_world_settings(world_container.get_child(0))
  minimap.set_target(player, player.get_node("CameraPivot"))
  _create_interaction_ui()
+ _create_character_selector()
 
 ## Explicit entry wins; otherwise restore a previous position or use DefaultSpawn.
 ## A missing/invalid entry fails without changing the active world or player.
@@ -83,6 +86,7 @@ func _apply_world_settings(world: Node) -> void:
  var settings := world as WORLD_SETTINGS
  player.character_scale = settings.character_scale if settings != null else _default_character_scale
  player.movement_speed = settings.movement_speed if settings != null else _default_movement_speed
+ player.step_height = 0.2 if world.scene_file_path == "res://world/campus.tscn" else 0.0
  player.get_node("CameraPivot").configure_world(world)
  minimap.configure_world(world)
 
@@ -111,8 +115,28 @@ func _unhandled_input(event: InputEvent) -> void:
   var spawn: StringName = _selected.spawn_name
   if not target_path.is_empty():
    _transition_to(target_path, spawn)
+  elif not _selected.local_teleport_target.is_empty():
+   var destination := _selected.get_node_or_null(_selected.local_teleport_target) as Marker3D
+   if destination != null:
+    _teleport_to(destination)
+  elif _selected.unavailable:
+   _show_unavailable_notice()
   else:
    _selected.interact(player)
+
+func _teleport_to(destination: Marker3D) -> void:
+ _transitioning = true
+ _selected = null
+ _prompt.hide()
+ player.set_physics_process(false)
+ player.global_transform = destination.global_transform
+ player.velocity = Vector3.ZERO
+ player.reset_physics_interpolation()
+ # Wait for area overlaps to reflect the new position before accepting E again.
+ await get_tree().physics_frame
+ await get_tree().physics_frame
+ player.set_physics_process(true)
+ _transitioning = false
 
 func _transition_to(target_path: String, spawn: StringName) -> void:
  _transitioning = true
@@ -171,8 +195,44 @@ func _create_interaction_ui() -> void:
  _prompt_label.add_theme_font_size_override("font_size", 23)
  _prompt.add_child(_prompt_label)
  _prompt.hide()
+ _notice = PanelContainer.new()
+ _notice.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+ _notice.offset_left = -200
+ _notice.offset_right = 200
+ _notice.offset_top = -30
+ _notice.offset_bottom = 30
+ _notice.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ _notice.add_theme_stylebox_override("panel", style.duplicate())
+ layer.add_child(_notice)
+ var notice_label := Label.new()
+ notice_label.text = "暂未开放，敬请期待~"
+ notice_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ notice_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ notice_label.add_theme_color_override("font_color", Color("596d68"))
+ notice_label.add_theme_font_size_override("font_size", 23)
+ _notice.add_child(notice_label)
+ _notice.hide()
  _fade = ColorRect.new()
  _fade.color = Color(0.16, 0.16, 0.15, 0.0)
  _fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  _fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
  layer.add_child(_fade)
+
+func _show_unavailable_notice() -> void:
+ if is_instance_valid(_notice_tween):
+  _notice_tween.kill()
+ _notice.modulate.a = 1.0
+ _notice.show()
+ _notice_tween = create_tween()
+ _notice_tween.tween_interval(2.0)
+ _notice_tween.tween_property(_notice, "modulate:a", 0.0, 0.4)
+ _notice_tween.tween_callback(_notice.hide)
+
+func _create_character_selector() -> void:
+ var layer := CanvasLayer.new()
+ layer.layer = 30
+ add_child(layer)
+ var selector := Control.new()
+ selector.set_script(preload("res://ui/character_selector.gd"))
+ selector.player = player
+ layer.add_child(selector)

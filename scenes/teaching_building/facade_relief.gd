@@ -46,7 +46,7 @@ func _box(role: String, x0: float, x1: float, y0: float, y1: float, z0: float, z
 	_boxes_per_floor += 1
 
 func _dado(x0: float, x1: float) -> void:
-	_box("Dado", x0, x1, 0.012, 0.82, -0.012, 0.045)
+	_box("Dado", x0, x1, 0.14, 0.82, -0.012, 0.045)
 	_box("Supports", x0, x1, 0.82, 0.885, -0.012, 0.075)
 	_box("Dado", x0, x1, 0.012, 0.14, -0.012, 0.09)
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/templates/student_character.tscn" id="1_base"]
+[ext_resource type="Texture2D" path="res://assets/characters/student_boy_spritesheet.png" id="2_texture"]
+
+[node name="StudentBoy" instance=ExtResource("1_base")]
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_texture")

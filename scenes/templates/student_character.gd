@@ -8,6 +8,9 @@ const COLLIDER_HEIGHT := 1.55
 const FRAME_BOTTOMS := [250.0, 244.0, 239.0]
 const FRAME_HEIGHT := 333.0
 
+## 关闭时保持待机，不读取玩家输入。
+@export var player_controlled := true
+
 @export_range(0.1, 20.0, 0.1, "or_greater") var movement_speed := 4.0
 ## 按住 Shift 时的速度倍率。
 @export_range(1.0, 4.0, 0.1, "or_greater") var sprint_multiplier := 1.8
@@ -39,6 +42,8 @@ var _direction_row := 0
 var _walk_frame := 0
 var _animation_time := 0.0
 var _capsule: CapsuleShape3D
+# Campus props use mesh collision; permit small ledges without climbing walls.
+var step_height := 0.0
 
 @onready var _sprite: Sprite3D = $Sprite3D
 @onready var _collision: CollisionShape3D = $CollisionShape3D
@@ -47,6 +52,8 @@ var _capsule: CapsuleShape3D
 
 
 func _ready() -> void:
+	if not player_controlled and not Engine.is_editor_hint():
+		add_to_group("minimap_npc")
 	_original_shaded = _sprite.get_draw_flag(SpriteBase3D.FLAG_SHADED)
 	_original_modulate = _sprite.modulate
 	_update_rendering()
@@ -57,7 +64,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or not player_controlled:
 		return
 
 	var input := Input.get_vector("character_left", "character_right", "character_forward", "character_back")
@@ -79,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = -0.1
 	var previous_position := global_position
+	_try_step_up(delta)
 	move_and_slide()
 	var displacement := global_position - previous_position
 	displacement.y = 0.0
@@ -103,12 +111,39 @@ func _physics_process(delta: float) -> void:
 	_update_sprite()
 
 
+func _try_step_up(delta: float) -> void:
+	if step_height <= 0.0 or not is_on_floor():
+		return
+	var motion := Vector3(velocity.x, 0.0, velocity.z) * delta
+	if motion.length_squared() < 0.000001 or not test_move(global_transform, motion):
+		return
+	var up := Vector3.UP * step_height
+	if test_move(global_transform, up):
+		return
+	var raised := global_transform.translated(up)
+	var probe_motion := motion.normalized() * maxf(motion.length(), _capsule.radius + 0.03)
+	if test_move(raised, probe_motion):
+		return
+	var landing := KinematicCollision3D.new()
+	if not test_move(raised.translated(probe_motion), -up - Vector3.UP * 0.05, landing):
+		return
+	if landing.get_normal().dot(Vector3.UP) < cos(floor_max_angle):
+		return
+	var rise := step_height + landing.get_travel().y
+	if rise > 0.001:
+		global_position.y += rise + 0.01
+
+
 func _update_dimensions() -> void:
 	_capsule.radius = COLLIDER_RADIUS * character_scale
 	_capsule.height = COLLIDER_HEIGHT * character_scale
 	_collision.position.y = _capsule.height * 0.5
 	_camera_pivot.position.y = 1.0 * character_scale
 	_sprite.pixel_size = PIXEL_SIZE * character_scale
+	var name_label := get_node_or_null("NameLabel") as Label3D
+	if name_label != null:
+		name_label.position.y = 1.85 * character_scale
+		name_label.pixel_size = 0.005 * character_scale
 	_update_sprite()
 
 

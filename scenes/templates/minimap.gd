@@ -15,6 +15,8 @@ var overlay: Control
 var clock_label: Label
 var floor_label: Label
 var current_floor := -1
+var npc_markers: Array[Vector2] = []
+var _active_world: Node
 var _building: Node3D
 var _indoor_environment: Environment
 var _indoor_map: Node3D
@@ -98,6 +100,8 @@ func set_target(target: Node3D, camera_pivot: Node3D) -> void:
 	view_pivot = camera_pivot
 
 func configure_world(world: Node) -> void:
+	_active_world = world
+	npc_markers.clear()
 	if is_instance_valid(_indoor_map):
 		map_view.remove_child(_indoor_map)
 		_indoor_map.queue_free()
@@ -141,5 +145,33 @@ func _process(_delta: float) -> void:
 	map_camera.look_at(target, forward)
 	var right := map_camera.global_basis.x
 	north_screen = Vector2(NORTH.dot(right), -NORTH.dot(forward)).normalized()
+	_update_npc_markers()
 	overlay.queue_redraw()
 	_update_clock()
+
+# NPCs can use the shared character script with player_controlled disabled,
+# or join the minimap_npc group on any Node3D in the active world.
+func _update_npc_markers() -> void:
+	npc_markers.clear()
+	if not is_instance_valid(_active_world):
+		return
+	var center := Vector2(MAP_SIZE, MAP_SIZE) * 0.5
+	var image_size := float(MAP_SIZE - 16)
+	var radius := image_size * 0.5 - 6.0
+	for npc in get_tree().get_nodes_in_group("minimap_npc"):
+		if not npc is Node3D or not _active_world.is_ancestor_of(npc) or not npc.is_visible_in_tree():
+			continue
+		var position: Vector3 = npc.global_position
+		if is_instance_valid(_building):
+			var npc_slice: Dictionary = _building.get_minimap_slice(position)
+			if npc_slice.floor_index != current_floor:
+				continue
+			var local_position := _building.to_local(position)
+			local_position.y = npc_slice.floor_y
+			position = _building.to_global(local_position)
+		if map_camera.is_position_behind(position):
+			continue
+		var viewport_point := map_camera.unproject_position(position)
+		var map_point := Vector2(8, 8) + viewport_point / Vector2(map_view.size) * image_size
+		if map_point.distance_to(center) <= radius:
+			npc_markers.append(map_point)

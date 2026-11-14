@@ -1,6 +1,4 @@
-[gd_scene format=3]
-
-[ext_resource type="Script" path="res://core/interaction_area.gd" id="interaction"]
+[gd_scene format=3 uid="uid://cx65ihclgnm7o"]
 
 [ext_resource type="PackedScene" path="res://scenes/templates/plane_element.tscn" id="1_plane"]
 [ext_resource type="PackedScene" path="res://scenes/templates/model_element.tscn" id="2_model"]
@@ -40,6 +38,13 @@
 [ext_resource type="Script" uid="uid://uodnmfgf7jiw" path="res://scenes/environment/campus_lamps.gd" id="campus_lamps"]
 [ext_resource type="Script" uid="uid://3a4den0dk25y" path="res://scenes/templates/campus_music.gd" id="campus_music"]
 [ext_resource type="Script" uid="uid://dh2pl0s57ghy8" path="res://scenes/environment/day_night_cycle.gd" id="day_night_cycle"]
+[ext_resource type="Texture2D" uid="uid://cylurnhpmyk4x" path="res://assets/ui/facility_beaker.svg" id="facility_beaker"]
+[ext_resource type="Texture2D" uid="uid://dq4iu3et1gicb" path="res://assets/ui/facility_bed.svg" id="facility_bed"]
+[ext_resource type="Texture2D" uid="uid://dxi8ih3uv1i7o" path="res://assets/ui/facility_food.svg" id="facility_food"]
+[ext_resource type="Texture2D" uid="uid://cnpbokhx7ybwj" path="res://assets/ui/facility_hall.svg" id="facility_hall"]
+[ext_resource type="Texture2D" uid="uid://beuam5cwumyv7" path="res://assets/ui/facility_run.svg" id="facility_run"]
+[ext_resource type="Texture2D" uid="uid://3xdh2y0g3is" path="res://assets/ui/facility_star.svg" id="facility_star"]
+[ext_resource type="Script" uid="uid://dn3pv5x4w22uw" path="res://core/interaction_area.gd" id="interaction"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sky"]
 shader = ExtResource("5_sky")
@@ -697,8 +702,17 @@ window_glow = 0.12
 facade_tint = Color(1, 0.94, 0.88, 1)
 clay_sheen = 0.3
 
+[node name="ChunhuiBuilding8" parent="." unique_id=259917257 instance=ExtResource("2_model")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.500418, -1.9073486e-06, 18.580582)
+glb_scene = ExtResource("9_85g3d")
+scale_steps = -0.4000000000000003
+soften_materials = true
+window_glow = 0.12
+facade_tint = Color(1, 0.94, 0.88, 1)
+clay_sheen = 0.3
+
 [node name="ChunhuiBuilding9" parent="." unique_id=657190683 instance=ExtResource("2_model")]
-transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 9.477007)
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.5, 0, 9.477)
 glb_scene = ExtResource("9_85g3d")
 scale_steps = -0.4000000000000003
 soften_materials = true
@@ -707,7 +721,7 @@ facade_tint = Color(1, 0.94, 0.88, 1)
 clay_sheen = 0.3
 
 [node name="ChunhuiBuilding65" parent="." unique_id=2082843189 instance=ExtResource("2_model")]
-transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.469099, -1.9073486e-06, 14.036654)
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 18.5, 0, 14.037)
 glb_scene = ExtResource("9_85g3d")
 scale_steps = -0.4000000000000003
 soften_materials = true
@@ -2091,12 +2105,11 @@ window_glow = 0.12
 facade_tint = Color(1, 0.94, 0.88, 1)
 clay_sheen = 0.3
 
+[node name="DefaultSpawn" type="Marker3D" parent="." unique_id=575243838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 29)
 
-[node name="DefaultSpawn" type="Marker3D" parent="."]
-position = Vector3(-15, 0.1, 29)
-
-[node name="TeachingEntrance" type="Area3D" parent="."]
-position = Vector3(2.2, 0.5, 30.3)
+[node name="TeachingEntrance" type="Area3D" parent="." unique_id=886067910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.5, 30.3)
 script = ExtResource("interaction")
 prompt = "进入教学楼"
 target_world_path = "res://world/teaching_building1.tscn"
@@ -2104,12 +2117,11 @@ spawn_name = &"DefaultSpawn"
 interaction_range = 0.75
 show_book_marker = true
 
-[node name="TeachingReturnSpawn" type="Marker3D" parent="."]
-position = Vector3(2.2, 0.1, 30.2)
-rotation = Vector3(0, 3.141593, 0)
+[node name="TeachingReturnSpawn" type="Marker3D" parent="." unique_id=755175190]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, 2.2, 0.1, 30.2)
 
-[node name="Teaching2Entrance" type="Area3D" parent="."]
-position = Vector3(2.2, 0.5, 22.201924)
+[node name="Teaching2Entrance" type="Area3D" parent="." unique_id=695402381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.5, 22.201923)
 script = ExtResource("interaction")
 prompt = "进入第二教学楼"
 target_world_path = "res://world/teaching_building2.tscn"
@@ -2117,12 +2129,11 @@ spawn_name = &"DefaultSpawn"
 interaction_range = 0.75
 show_book_marker = true
 
-[node name="Teaching2ReturnSpawn" type="Marker3D" parent="."]
-position = Vector3(2.2, 0.1, 22.101924)
-rotation = Vector3(0, 3.141593, 0)
+[node name="Teaching2ReturnSpawn" type="Marker3D" parent="." unique_id=1112103101]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, 2.2, 0.1, 22.101925)
 
-[node name="Teaching3Entrance" type="Area3D" parent="."]
-position = Vector3(2.2, 0.5, 14.244704)
+[node name="Teaching3Entrance" type="Area3D" parent="." unique_id=1889896167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.5, 14.244704)
 script = ExtResource("interaction")
 prompt = "进入第三教学楼"
 target_world_path = "res://world/teaching_building3.tscn"
@@ -2130,6 +2141,167 @@ spawn_name = &"DefaultSpawn"
 interaction_range = 0.75
 show_book_marker = true
 
-[node name="Teaching3ReturnSpawn" type="Marker3D" parent="."]
-position = Vector3(2.2, 0.1, 14.144704)
-rotation = Vector3(0, 3.141593, 0)
+[node name="Teaching3ReturnSpawn" type="Marker3D" parent="." unique_id=1753051742]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, 2.2, 0.1, 14.144704)
+
+[node name="GateLeftInside" type="Area3D" parent="." unique_id=899331535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.405455, 0.5, 34.65)
+script = ExtResource("interaction")
+prompt = "走出校门"
+local_teleport_target = NodePath("../GateLeftOutsideSpawn")
+interaction_range = 0.75
+show_exit_marker = true
+
+[node name="GateLeftOutside" type="Area3D" parent="." unique_id=122605965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.405455, 0.5, 37.45)
+script = ExtResource("interaction")
+prompt = "进入校园"
+local_teleport_target = NodePath("../GateLeftInsideSpawn")
+interaction_range = 0.75
+show_exit_marker = true
+
+[node name="GateLeftInsideSpawn" type="Marker3D" parent="." unique_id=928512658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.405455, 0.1, 34.65)
+
+[node name="GateLeftOutsideSpawn" type="Marker3D" parent="." unique_id=1894839602]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, -22.405455, 0.1, 37.45)
+
+[node name="GateRightInside" type="Area3D" parent="." unique_id=1804774132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.607754, 0.5, 34.65)
+script = ExtResource("interaction")
+prompt = "走出校门"
+local_teleport_target = NodePath("../GateRightOutsideSpawn")
+interaction_range = 0.75
+show_exit_marker = true
+
+[node name="GateRightOutside" type="Area3D" parent="." unique_id=1083165871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.607754, 0.5, 37.45)
+script = ExtResource("interaction")
+prompt = "进入校园"
+local_teleport_target = NodePath("../GateRightInsideSpawn")
+interaction_range = 0.75
+show_exit_marker = true
+
+[node name="GateRightInsideSpawn" type="Marker3D" parent="." unique_id=1158314369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.607754, 0.1, 34.65)
+
+[node name="GateRightOutsideSpawn" type="Marker3D" parent="." unique_id=1914309059]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, -8.607754, 0.1, 37.45)
+
+[node name="Science1Entrance" type="Area3D" parent="." unique_id=1053144015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0.5, 30.6)
+script = ExtResource("interaction")
+prompt = "进入第一科学楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_beaker")
+unavailable = true
+
+[node name="Science2Entrance" type="Area3D" parent="." unique_id=1021301017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.46, 0.5, 22.3)
+script = ExtResource("interaction")
+prompt = "进入第二科学楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_beaker")
+unavailable = true
+
+[node name="ChunhuiEntrance" type="Area3D" parent="." unique_id=1035352160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.02, 0.5, 4.1)
+script = ExtResource("interaction")
+prompt = "进入春晖楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_star")
+unavailable = true
+
+[node name="AuditoriumEntrance" type="Area3D" parent="." unique_id=1238997189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.95, 0.5, 14.1)
+script = ExtResource("interaction")
+prompt = "进入报告厅"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_hall")
+unavailable = true
+
+[node name="GymEntrance" type="Area3D" parent="." unique_id=218426289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94, 0.5, 6.7)
+script = ExtResource("interaction")
+prompt = "进入体育馆"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_run")
+unavailable = true
+
+[node name="CanteenEntrance" type="Area3D" parent="." unique_id=1997788983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.13, 0.5, -15.8)
+script = ExtResource("interaction")
+prompt = "进入食堂"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_food")
+unavailable = true
+
+[node name="GirlsDorm1Entrance" type="Area3D" parent="." unique_id=1899932172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46, 0.5, -12.8)
+script = ExtResource("interaction")
+prompt = "进入女生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="GirlsDorm2Entrance" type="Area3D" parent="." unique_id=449675068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46, 0.5, -19.8)
+script = ExtResource("interaction")
+prompt = "进入女生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="BoysDorm1Entrance" type="Area3D" parent="." unique_id=114281741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.84, 0.5, -30.2)
+script = ExtResource("interaction")
+prompt = "进入男生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="BoysDorm2Entrance" type="Area3D" parent="." unique_id=1145575920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.84, 0.5, -37.4)
+script = ExtResource("interaction")
+prompt = "进入男生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="BoysDorm3Entrance" type="Area3D" parent="." unique_id=798268907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7, 0.5, -37.4)
+script = ExtResource("interaction")
+prompt = "进入男生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="BoysDorm4Entrance" type="Area3D" parent="." unique_id=599272461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7, 0.5, -30.1)
+script = ExtResource("interaction")
+prompt = "进入男生宿舍楼"
+interaction_range = 0.75
+icon_texture = ExtResource("facility_bed")
+unavailable = true
+
+[node name="TrackOutside" type="Area3D" parent="." unique_id=1532346708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.5, 23.15)
+script = ExtResource("interaction")
+prompt = "进入大操场"
+local_teleport_target = NodePath("../TrackInsideSpawn")
+interaction_range = 0.75
+icon_texture = ExtResource("facility_run")
+
+[node name="TrackOutsideSpawn" type="Marker3D" parent="." unique_id=1403778660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.1, 23.15)
+
+[node name="TrackInside" type="Area3D" parent="." unique_id=963724493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 23.15)
+script = ExtResource("interaction")
+prompt = "离开大操场"
+local_teleport_target = NodePath("../TrackOutsideSpawn")
+interaction_range = 0.75
+icon_texture = ExtResource("facility_run")
+
+[node name="TrackInsideSpawn" type="Marker3D" parent="." unique_id=2023526537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.1, 23.15)

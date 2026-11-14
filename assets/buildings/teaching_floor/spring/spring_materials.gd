@@ -63,6 +63,8 @@ func _rebuild() -> void:
 	wall.set_shader_parameter("origin_y", origin.y)
 	wall.set_shader_parameter("paint_dado", not solid_dado)
 	_palette["Soft ivory wall"] = wall
+	var stair_wall: ShaderMaterial = wall.duplicate()
+	stair_wall.set_shader_parameter("paint_dado", true)
 	var door: ShaderMaterial = MATERIALS["Painted green door"].duplicate()
 	door.set_shader_parameter("floor_height", floor_height)
 	door.set_shader_parameter("bay_width", bay_width)
@@ -86,7 +88,10 @@ func _rebuild() -> void:
 		var role: String = slot.material.resource_name
 		# The one-storey export has Blender's .001 material suffix.
 		role = role.split(".")[0]
-		if enabled and _palette.has(role) and not slot.material is ShaderMaterial:
+		if enabled and String(mesh_instance.name).begins_with("solid_stair_side_"):
+			mesh_instance.material_override = null
+			mesh_instance.set_surface_override_material(slot.surface, stair_wall)
+		elif enabled and _palette.has(role) and not slot.material is ShaderMaterial:
 			mesh_instance.material_override = null
 			mesh_instance.set_surface_override_material(slot.surface, _palette[role])
 		else:

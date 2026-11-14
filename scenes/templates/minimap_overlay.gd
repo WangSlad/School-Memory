@@ -3,6 +3,9 @@ extends Control
 func _draw() -> void:
 	var center := size * 0.5
 	var radius := size.x * 0.5 - 8.0
+	for point: Vector2 in get_parent().npc_markers:
+		draw_circle(point, 6.0, Color.BLACK)
+		draw_circle(point, 4.0, Color.WHITE)
 	# Thick dark outline and purple rim echo the reference image.
 	draw_arc(center, radius + 2.0, 0.0, TAU, 128, Color("221b2a"), 9.0, true)
 	draw_arc(center, radius, 0.0, TAU, 128, Color("b86acb"), 6.0, true)

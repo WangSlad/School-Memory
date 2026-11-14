@@ -11,6 +11,7 @@ const JOINERY_DETAIL := preload("res://scenes/teaching_building/joinery_detail.g
 const GLAZING_PANELS := preload("res://scenes/teaching_building/glazing_panels.gd")
 const RESTROOM_CONVERSION := preload("res://scenes/teaching_building/restroom_conversion.gd")
 const CEILING_LIGHTS := preload("res://scenes/teaching_building/ceiling_lights.gd")
+const RAIL_MATERIAL := preload("res://assets/buildings/teaching_floor/spring/materials/frame.tres")
 const FIVE_FLOOR_SIGNS := preload("res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_sign_five_平面.png")
 
 @export_group("Appearance")
@@ -142,6 +143,37 @@ func _build_stairs_collision() -> void:
 			var h := floor_index * FLOOR_HEIGHT
 			_guard(rails, center - 0.08, h, h + FLOOR_HEIGHT / 2.0, -0.8, -4.4)
 			_guard(rails, center + 0.08, h + FLOOR_HEIGHT / 2.0, h + FLOOR_HEIGHT, -4.4, -0.8)
+		_top_stair_guard(rails, center)
+
+# The upper landing meets the open side of the lower flight. Protect its edge,
+# leaving the opposite half open for the descending flight.
+func _top_stair_guard(body: StaticBody3D, center: float) -> void:
+	var y := (FLOOR_COUNT - 1) * FLOOR_HEIGHT
+	var x0 := center - 2.3
+	var x1 := center + 0.08
+	var z := -0.8
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(x1 - x0, 1.1, 0.08)
+	collision.shape = shape
+	collision.position = Vector3((x0 + x1) * 0.5, y + 0.55, z)
+	body.add_child(collision)
+	var visual := Node3D.new()
+	visual.name = "TopLandingGuard"
+	visual.set_meta("top_stair_guard", true)
+	add_child(visual)
+	_rail_box(visual, Vector3((x0 + x1) * 0.5, y + 1.05, z), Vector3(x1 - x0, 0.055, 0.055))
+	for i in range(4):
+		_rail_box(visual, Vector3(lerpf(x0, x1, i / 3.0), y + 0.53, z), Vector3(0.055, 1.04, 0.055))
+
+func _rail_box(parent: Node3D, at: Vector3, size: Vector3) -> void:
+	var instance := MeshInstance3D.new()
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	mesh.material = RAIL_MATERIAL
+	instance.mesh = mesh
+	instance.position = at
+	parent.add_child(instance)
 
 func _guard(body: StaticBody3D, x: float, y0: float, y1: float, z0: float, z1: float) -> void:
 	var collision := CollisionShape3D.new()
@@ -180,6 +212,7 @@ func _build_interfaces() -> void:
 				marker.name = "FrontDoor" if door_index == 0 else "RearDoor"
 				marker.position = Vector3((room + 3) * BAY_WIDTH + (0.95 if door_index == 0 else 7.05) * 1.3, 0.0, 0.65)
 				classroom.add_child(marker)
+
 
 
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkpr3on0d8kgo"]
 
-[ext_resource type="PackedScene" path="res://world/campus.tscn" id="campus"]
+[ext_resource type="PackedScene" uid="uid://cx65ihclgnm7o" path="res://world/campus.tscn" id="campus"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="hud"]
 [ext_resource type="PackedScene" path="res://scenes/templates/student_character.tscn" id="player"]
 [ext_resource type="Script" uid="uid://bbx28ai66yk6x" path="res://core/game_root.gd" id="root"]
@@ -15,7 +15,7 @@ script = ExtResource("root")
 [node name="StudentCharacter" parent="." unique_id=1524475715 instance=ExtResource("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 29)
 movement_speed = 2.0
-character_scale = 0.75
+character_scale = 0.5
 soften_materials = true
 
 [node name="HUD" parent="." unique_id=1234535707 instance=ExtResource("hud")]
