@@ -10,6 +10,7 @@ const FACADE_RELIEF := preload("res://scenes/teaching_building/facade_relief.gd"
 const JOINERY_DETAIL := preload("res://scenes/teaching_building/joinery_detail.gd")
 const GLAZING_PANELS := preload("res://scenes/teaching_building/glazing_panels.gd")
 const RESTROOM_CONVERSION := preload("res://scenes/teaching_building/restroom_conversion.gd")
+const INTERACTION_AREA := preload("res://core/interaction_area.gd")
 const CEILING_LIGHTS := preload("res://scenes/teaching_building/ceiling_lights.gd")
 const RAIL_MATERIAL := preload("res://assets/buildings/teaching_floor/spring/materials/frame.tres")
 const FIVE_FLOOR_SIGNS := preload("res://assets/buildings/teaching_floor/spring/textures/B03_teaching_spring_sign_five_平面.png")
@@ -59,6 +60,7 @@ func _ready() -> void:
 		var restrooms := RESTROOM_CONVERSION.new()
 		restrooms.name = "Restrooms"
 		add_child(restrooms)
+	_build_room_interactions()
 	var ceiling_lights := CEILING_LIGHTS.new()
 	ceiling_lights.name = "CeilingLights"
 	add_child(ceiling_lights)
@@ -219,3 +221,51 @@ func _build_interfaces() -> void:
 
 
 
+
+# These invisible areas sit on the corridor side of each closed door.
+func _build_room_interactions() -> void:
+	var root := Node3D.new()
+	root.name = "RoomInteractions"
+	add_child(root)
+	for floor_index in range(FLOOR_COUNT):
+		var floor_node := Node3D.new()
+		floor_node.name = "Floor_%02d" % (floor_index + 1)
+		floor_node.position.y = floor_index * FLOOR_HEIGHT
+		root.add_child(floor_node)
+		for room in range(8):
+			for door in range(2):
+				var x: float = (room + 3) * BAY_WIDTH + (0.95 if door == 0 else 7.05) * 1.3
+				_add_room_area(floor_node, "Classroom_%02d_Door_%d" % [room + 1, door + 1], Vector3(x, 0.8, 0.8), "进入教室", true)
+		for bay in [2, 12]:
+			var x: float = bay * BAY_WIDTH + (1.3 if bay == 12 else 1.1) * 1.3
+			_add_room_area(floor_node, "Office_%d" % bay, Vector3(x, 0.8, 0.8), "进入办公室", true)
+		if restrooms_enabled:
+			for gender in range(2):
+				var label := "男厕所" if gender == 0 else "女厕所"
+				var prefix := "Men" if gender == 0 else "Women"
+				var x: float = RESTROOM_CONVERSION.START + gender * 5.2 + 1.45
+				var outside := _add_room_area(floor_node, prefix + "Outside", Vector3(x, 0.8, 0.85), "进入" + label, false)
+				var inside := _add_room_area(floor_node, prefix + "Inside", Vector3(x, 0.8, -1.35), "离开" + label, false)
+				var outside_spawn := Marker3D.new()
+				outside_spawn.name = prefix + "OutsideSpawn"
+				outside_spawn.position = Vector3(x, 0.08, 1.1)
+				floor_node.add_child(outside_spawn)
+				var inside_spawn := Marker3D.new()
+				inside_spawn.name = prefix + "InsideSpawn"
+				inside_spawn.position = Vector3(x, 0.08, -1.35)
+				floor_node.add_child(inside_spawn)
+				outside.local_teleport_target = outside.get_path_to(inside_spawn)
+				inside.local_teleport_target = inside.get_path_to(outside_spawn)
+		else:
+			_add_room_area(floor_node, "Office_13", Vector3(13 * BAY_WIDTH + 1.1 * 1.3, 0.8, 0.8), "进入办公室", true)
+
+func _add_room_area(parent: Node3D, area_name: String, at: Vector3, text: String, unavailable: bool) -> Area3D:
+	var area := Area3D.new()
+	area.set_script(INTERACTION_AREA)
+	area.name = area_name
+	area.position = at
+	area.prompt = text
+	area.unavailable = unavailable
+	area.interaction_range = 0.9
+	parent.add_child(area)
+	return area
